@@ -4,6 +4,7 @@ import Layout from './layout'
 import VerticalAddition from './questions/vertical_addition'
 import AdditionWithIcons from './questions/addition_with_icons'
 import AngleTypes from './questions/angle_types'
+import ArithmeticPyramid from './questions/arithmetic_pyramid'
 
 class Generator extends React.Component {
 
@@ -22,6 +23,9 @@ class Generator extends React.Component {
       },
       {
         definition: AngleTypes
+      },
+      {
+        definition: ArithmeticPyramid
       }
     ]
 
