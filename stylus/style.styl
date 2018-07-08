@@ -1,0 +1,30 @@
+body
+  font-family monospace
+  font-size 30px
+  
+table.layout, td
+  border 1px solid black
+  border-collapse collapse
+  
+  td
+    width 250px
+    height 200px
+
+  td[rowspan='2']
+    height 400px
+    
+  td[colspan='2']
+    width 500px
+  
+
+.maths-page
+  margin 20px 0
+  
+@media print
+  .maths-page
+    page-break-after always
+  
+@require 'questions/*'
+  
+  
+
