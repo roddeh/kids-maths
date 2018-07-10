@@ -4,22 +4,50 @@ import doTimes from '../do_times'
 import pad from '../pad'
 import rand from '../rand'
 import shallowClone from '../shallow_clone'
+import zerosToSpace from '../zeros_to_space'
 import QuestionEditor from '../question_editor'
 
 const defaultProps = {
   numDigits: 3,
-  carryOver: true,
+  carryOver: false,
 }
 
 class VerticalAdditionGenerator extends React.Component {
 
   render(){
-    let config = this.props;
-    let numDigits = config.numDigits;
+    let numDigits = this.props.numDigits
 
-    let max = Math.pow(10, numDigits) - 1;
-    let top = String(rand(0, max));
-    let bottom = String(rand(0, max));
+    let top
+    let bottom
+
+    console.log(this.props);
+
+    if(this.props.carryOver){
+      let max = Math.pow(10, numDigits) - 1
+      top = String(rand(0, max))
+      bottom = String(rand(0, max))
+    }
+    else{
+      function makeNumberPair(i){
+        let a = rand(0, 9);
+        let b = rand(0, 9 - a)
+
+        if(rand(1) === 1){
+          return [a, b];
+        }
+        return [b, a];
+      }
+
+      let numbers = doTimes(this.props.numDigits, makeNumberPair)
+        .reduce((nums, pair) => {
+          nums.top += pair[0];
+          nums.bottom += pair[1];
+          return nums;
+        }, {top:'', bottom:''});
+      top = zerosToSpace(numbers.top, '0');
+      bottom = zerosToSpace(numbers.bottom, '0');
+    }
+    
 
     return (
       <div className='simple-vertical-addition'>
@@ -40,18 +68,20 @@ VerticalAdditionGenerator.defaultProps = defaultProps;
 class VerticalAdditionEditor extends QuestionEditor {
 
   render(){
+    console.log(this.state);
     return (
       <div className='editor-form'>
         <label>Number of digits:</label>
-        <input type='range' name='numDigits' min='1' max='5' step='1' value={ this.state.numDigits } onChange={ this.handleRangeChange }></input>        
+        <input type='range' name='numDigits' min='1' max='5' step='1' value={ this.state.numDigits } onChange={ this.handleRangeChange }></input>
+        <label>{ this.state.numDigits }</label>
+        <br/>
+        <label>Include questions with carry over:</label>
+        <input type='checkbox' name='carryOver' defaultChecked={ this.state.carryOver } onChange={ this.handleCheckboxChange }></input>
       </div>
     )
   }
 }
 
-// <br/>
-//         <label>Include questions with carry over:</label>
-//         <input type='checkbox' name='carryOver' onChange={ this.handleCheckboxChange }></input>
 
 const VerticalAddition = {
   name: 'verticalAddition',

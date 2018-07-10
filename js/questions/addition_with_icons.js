@@ -3,8 +3,15 @@ import c from '../constants'
 import doTimes from '../do_times'
 import rand from '../rand'
 import emoji from '../emoji'
+import QuestionEditor from '../question_editor'
 
-class AdditionWithIcons extends React.Component {
+const defaultProps = {
+  minNumber: 1,
+  maxNumber: 12,
+  includeTraceNumbers:false,
+}
+
+class AdditionWithIconsGenerator extends React.Component {
 
   render(){
     let config = this.props;
@@ -32,6 +39,7 @@ class AdditionWithIcons extends React.Component {
             { makeOp('+') }
             <span className='trace-number'>{ right }</span>
             { makeOp('\x3D\xA0')}
+            <span className='trace-number'>{ left + right }</span>
           </span>
         )
       }
@@ -68,12 +76,38 @@ class AdditionWithIcons extends React.Component {
   }
 }
 
-AdditionWithIcons.layoutType = c.questionShapes.WIDE_RECT;
+AdditionWithIconsGenerator.defaultProps
 
-AdditionWithIcons.defaultProps = {
-  minNumber: 1,
-  maxNumber: 12,
-  includeTraceNumbers:false,
+class AdditionWithIconsEditor extends QuestionEditor {
+
+  render(){
+    console.log(this.state);
+    return (
+      <div className='editor-form'>
+        <label>Minimum number:</label>
+        <input type='range' name='minNumber' min='1' max='5' step='1' value={ this.state.minNumber } onChange={ this.handleRangeChange }></input>
+        <label>{ this.state.minNumber }</label>
+        <br/>
+        <label>Maximum number:</label>
+        <input type='range' name='maxNumber' min='5' max='16' step='1' value={ this.state.maxNumber } onChange={ this.handleRangeChange }></input>
+        <label>{ this.state.maxNumber }</label>
+        <br/>
+        <label>Include traceable numbers:</label>
+        <input type='checkbox' name='includeTraceNumbers' defaultChecked={ this.state.includeTraceNumbers } onChange={ this.handleCheckboxChange }></input>
+      </div>
+    )
+  }
+}
+
+AdditionWithIconsEditor.defaultProps
+
+const AdditionWithIcons = {
+  name: 'additionWithIcons',
+  title: 'Addition with Icons',
+  description: 'Learn the basics of addition with icons. Optionally include traceable numbers to help teach the writing of numbers.',
+  layoutType: c.questionShapes.WIDE_RECT,
+  generator: AdditionWithIconsGenerator,
+  editor: AdditionWithIconsEditor,
 }
 
 module.exports = AdditionWithIcons

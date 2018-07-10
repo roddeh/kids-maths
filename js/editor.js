@@ -32,11 +32,13 @@ class Editor extends React.Component {
 
     let questionDefinitions = [
       VerticalAddition,
+      AdditionWithIcons,
     ]
 
     let config = {
       questions:{
-        "verticalAddition":{"numDigits":4},
+        "verticalAddition":{"numDigits":4, carryOver:false},
+        "additionWithIcons":{"minNumber":3, "maxNumber":12, includeTraceNumbers:true},
       }
     }
 
@@ -87,6 +89,7 @@ class EditorQuestion extends React.Component {
         {
           React.createElement(def.editor, {config:this.state, onChange:this.handleChange})
         }
+        <br/>
         {
           React.createElement(def.generator, this.state)
         }

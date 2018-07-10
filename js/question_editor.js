@@ -22,24 +22,12 @@ class QuestionEditor extends React.Component {
   }
 
   handleCheckboxChange(event){
-    let value = event.currentTarget.value === 'on'
-    this.handleChange(event.currentTarget.name, value)
+    this.handleChange(event.currentTarget.name, event.currentTarget.checked)
   }
 
   handleRangeChange(event){
-    let value = parseInt(event.currentTarget.value)
-    this.handleChange(event.currentTarget.name, value)
+    this.handleChange(event.currentTarget.name, parseInt(event.currentTarget.value))
   }
-
-  // render(){
-  //   return (
-  //     <div className='editor-form'>
-  //       <label>Number of digits:</label>
-  //       <input type='range' name='numDigits' min='1' max='5' step='1' value={ this.state.numDigits } onChange={ this.handleRangeChange }></input>
-        
-  //     </div>
-  //   )
-  // }
 }
 
 module.exports = QuestionEditor

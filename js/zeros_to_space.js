@@ -1,4 +1,4 @@
-const doTimes = require('./do_times');
+import doTimes from './do_times';
 
 function zerosToSpace(str, char){
   let ind = 0;
@@ -18,7 +18,7 @@ function zerosToSpace(str, char){
   }
 
   doTimes(ind, () => {
-    str = '&nbsp;' + str;
+    str = '\xA0' + str;
   })
   return str;
 }
