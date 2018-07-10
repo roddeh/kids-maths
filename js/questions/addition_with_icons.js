@@ -31,7 +31,7 @@ class AdditionWithIcons extends React.Component {
             <span className='trace-number'>{ left }</span>
             { makeOp('+') }
             <span className='trace-number'>{ right }</span>
-            { makeOp('\x61\xA0')}
+            { makeOp('\x3D\xA0')}
           </span>
         )
       }
@@ -41,7 +41,7 @@ class AdditionWithIcons extends React.Component {
             { makeIcons('\xA0', 12) }
             { makeOp('+') }
             { makeIcons('\xA0', 12) }
-            { makeOp('\x61') }
+            { makeOp('\x3D') }
           </span>
         )
       }

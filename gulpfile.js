@@ -19,7 +19,7 @@ gulp.task("stylus", function(){compileStylus(false)});
 gulp.task("watchStylus", function(){compileStylus(true)});
 
 function compileStylus(watchFiles){
-  var stream = gulp.src(["./stylus/**/*.styl", "!./stylus/questions/**"]);
+  var stream = gulp.src(["./stylus/style.styl"]);
 
   if(watchFiles){
     stream = stream.pipe(watch("./style/**/*.styl"));

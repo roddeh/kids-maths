@@ -317,7 +317,7 @@ class Layout extends React.Component {
                   return (
                     <td colSpan={ cell.colSpan || 1 } rowSpan={ cell.rowSpan || 1} key={ index }>
                       {
-                        React.createElement(question.definition, question.config)
+                        React.createElement(question.definition.generator, question.config)
                       }
                     </td> 
                   )

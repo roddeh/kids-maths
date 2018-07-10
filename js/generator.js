@@ -18,15 +18,15 @@ class Generator extends React.Component {
         // config:{numDigits:1},
         definition: VerticalAddition
       },
-      {
-        definition: AdditionWithIcons
-      },
-      {
-        definition: AngleTypes
-      },
-      {
-        definition: ArithmeticPyramid
-      }
+      // {
+      //   definition: AdditionWithIcons
+      // },
+      // {
+      //   definition: AngleTypes
+      // },
+      // {
+      //   definition: ArithmeticPyramid
+      // }
     ]
 
     return (
