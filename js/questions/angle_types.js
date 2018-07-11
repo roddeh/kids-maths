@@ -11,7 +11,7 @@ const ANGLES = [30, 60, 90, 120, 150, 180, 210, 240]
 
 let idCounter = 0;
 
-class AngleTypes extends React.Component {
+class AngleTypesGenerator extends React.Component {
 
   componentDidMount(){
     let angles = shuffle(ANGLES);
@@ -49,8 +49,14 @@ class AngleTypes extends React.Component {
   }
 }
 
-AngleTypes.layoutType = c.questionShapes.SMALL_SQUARE;
-
-AngleTypes.defaultProps = {}
+const AngleTypes = {
+  name: 'angleTypes',
+  title: 'Angle Types',
+  description: 'Learn about the different types of angles and how to measure them.',
+  difficultyLevel:4,
+  layoutType: c.questionShapes.SMALL_SQUARE,
+  generator: AngleTypesGenerator,
+  editor: null,
+}
 
 module.exports = AngleTypes

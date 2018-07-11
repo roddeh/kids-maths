@@ -81,7 +81,6 @@ AdditionWithIconsGenerator.defaultProps
 class AdditionWithIconsEditor extends QuestionEditor {
 
   render(){
-    console.log(this.state);
     return (
       <div className='editor-form'>
         <label>Minimum number:</label>
@@ -105,6 +104,7 @@ const AdditionWithIcons = {
   name: 'additionWithIcons',
   title: 'Addition with Icons',
   description: 'Learn the basics of addition with icons. Optionally include traceable numbers to help teach the writing of numbers.',
+  difficultyLevel:0,
   layoutType: c.questionShapes.WIDE_RECT,
   generator: AdditionWithIconsGenerator,
   editor: AdditionWithIconsEditor,

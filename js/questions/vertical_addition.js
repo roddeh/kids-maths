@@ -16,11 +16,8 @@ class VerticalAdditionGenerator extends React.Component {
 
   render(){
     let numDigits = this.props.numDigits
-
     let top
     let bottom
-
-    console.log(this.props);
 
     if(this.props.carryOver){
       let max = Math.pow(10, numDigits) - 1
@@ -68,7 +65,6 @@ VerticalAdditionGenerator.defaultProps = defaultProps;
 class VerticalAdditionEditor extends QuestionEditor {
 
   render(){
-    console.log(this.state);
     return (
       <div className='editor-form'>
         <label>Number of digits:</label>
@@ -82,11 +78,13 @@ class VerticalAdditionEditor extends QuestionEditor {
   }
 }
 
+VerticalAdditionEditor.defaultProps = defaultProps;
 
 const VerticalAddition = {
   name: 'verticalAddition',
   title: 'Vertical Addition',
   description: 'Learn addition of large numbers. To start with you can exclude questions with \'carry over\'.',
+  difficultyLevel:3,
   layoutType: c.questionShapes.SMALL_SQUARE,
   generator: VerticalAdditionGenerator,
   editor: VerticalAdditionEditor,

@@ -6,7 +6,7 @@ class QuestionEditor extends React.Component {
 
   constructor(props){
     super(props)
-    this.state = shallowClone(props.config)
+    this.state = shallowClone(props)
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
     this.handleRangeChange = this.handleRangeChange.bind(this);
   }
