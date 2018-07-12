@@ -13,7 +13,7 @@ let idCounter = 0;
 
 class AngleTypesGenerator extends React.Component {
 
-  componentDidMount(){
+  updateCanvas(){
     let angles = shuffle(ANGLES);
     let firstRotation = angles[0];
     let secondRotation = angles[1];
@@ -36,6 +36,14 @@ class AngleTypesGenerator extends React.Component {
     ctx.arc(0, 0, 20, firstRotation - Math.PI / 2, secondRotation - Math.PI / 2, firstRotation < secondRotation);
     ctx.stroke();
     drawLine(secondRotation);
+  }
+
+  componentDidMount(){
+    this.updateCanvas()
+  }
+
+  componentDidUpdate(){
+    this.updateCanvas()
   }
 
   render(){
