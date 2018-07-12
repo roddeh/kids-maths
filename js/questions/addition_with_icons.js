@@ -1,8 +1,8 @@
 import React from 'react'
 import c from '../constants'
-import doTimes from '../do_times'
-import rand from '../rand'
-import emoji from '../emoji'
+import doTimes from '../utils/do_times'
+import rand from '../utils/rand'
+import emoji from '../utils/emoji'
 import QuestionEditor from '../question_editor'
 
 const defaultProps = {

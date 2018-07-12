@@ -1,5 +1,5 @@
 import React from 'react'
-import shallowClone from './shallow_clone'
+import shallowClone from './utils/shallow_clone'
 
 
 class QuestionEditor extends React.Component {

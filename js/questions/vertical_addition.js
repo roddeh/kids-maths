@@ -1,10 +1,10 @@
 import React from 'react'
 import c from '../constants'
-import doTimes from '../do_times'
-import pad from '../pad'
-import rand from '../rand'
-import shallowClone from '../shallow_clone'
-import zerosToSpace from '../zeros_to_space'
+import doTimes from '../utils/do_times'
+import pad from '../utils/pad'
+import rand from '../utils/rand'
+import shallowClone from '../utils/shallow_clone'
+import zerosToSpace from '../utils/zeros_to_space'
 import QuestionEditor from '../question_editor'
 
 const defaultProps = {

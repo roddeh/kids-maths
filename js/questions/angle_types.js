@@ -1,9 +1,9 @@
 import React from 'react'
 import c from '../constants'
-import doTimes from '../do_times'
-import pad from '../pad'
-import rand from '../rand'
-import shuffle from '../shuffle'
+import doTimes from '../utils/do_times'
+import pad from '../utils/pad'
+import rand from '../utils/rand'
+import shuffle from '../utils/shuffle'
 
 const WIDTH = 150;
 const HEIGHT = 150;

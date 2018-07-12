@@ -1,6 +1,6 @@
 import React from 'react'
 import c from './constants'
-import rand from './rand'
+import rand from './utils/rand'
 
 let ss = {
   type: c.questionShapes.SMALL_SQUARE,  

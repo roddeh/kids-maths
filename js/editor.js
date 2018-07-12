@@ -1,42 +1,64 @@
 import React from 'react'
-import shallowClone from './shallow_clone'
+import shallowClone from './utils/shallow_clone'
 import QUESTIONS from './questions'
+import parseQuery from './utils/parse_query'
+import service from './service'
 
 class Editor extends React.Component {
 
   constructor(props){
     super(props)
 
-    this.state = {
-      config: {
-        questions:[
-          {name:"verticalAddition", enabled:true, "numDigits":4, carryOver:false},
-          {name:"additionWithIcons", enabled:true, "minNumber":3, "maxNumber":12, includeTraceNumbers:true},
-          {name:"arithmeticPyramid", enabled:true, "minNumber":6, "maxNumber":12},
-          {name:"angleTypes", enabled:true},
-        ]
-      }
-    }
-
+    this.state = {loading:true}
     this.handleAddQuestion = this.handleAddQuestion.bind(this)
     this.handleRemove = this.handleRemove.bind(this)
+    this.handleQuestionChange = this.handleQuestionChange.bind(this)
+
+    let query = parseQuery()
+
+    service.loadConfig(query.config)
+      .then((result) => {
+        this.setState({loading:false, configID:query.config, config:result.config})
+      })
+      .catch((error) => {
+        console.log('Handle the error', error);
+      })
+
+  }
+
+  save(){
+    // 'Need to throttle this function'
+    console.log('TODO: Throttle this function');
+    service.saveConfig(this.state.configID, {config:this.state.config})
   }
 
   handleAddQuestion(name){
     let questions = this.state.config.questions;
     questions.unshift({name, enabled:true})
     this.setState({config:{questions}})
+    this.save()
   }
 
   handleRemove(name){
     let questions = this.state.config.questions
-    // delete questions[key]
     let index = questions.findIndex((q) => q.name === name)
     questions.splice(index, 1)
     this.setState({config:{questions}})
+    this.save()
+  }
+
+  handleQuestionChange(data){
+    let questions = this.state.config.questions;
+    let index = questions.findIndex((q) => q.name === data.name)
+    questions[index] = data
+    this.save()
   }
 
   render(){
+    if(this.state.loading){
+      return <div className='loader'>Loading...</div>
+    }
+
     let questions = this.state.config.questions.map((q) => {
       let question = QUESTIONS.find((v) => v.name === q.name)
       return ({name:question.name, config:q, definition:question})
@@ -54,6 +76,7 @@ class Editor extends React.Component {
                   definition={ question.definition }
                   config={ question.config }
                   onRemove={ () => { this.handleRemove(question.name) } }
+                  onChange={ this.handleQuestionChange }
                 />
               )
             })
@@ -87,8 +110,6 @@ class QuestionList extends React.Component {
       <div className='question-list'>
         {
           questions.map((q) => {
-            // console.log(q);
-            // let exists = Boolean(this.state.config.questions[q.name])
             let exists = this.state.config.questions.findIndex((cq) => cq.name === q.name) !== -1
             return (
               <div className='question-item' key={ q.name }>
@@ -116,6 +137,9 @@ class EditorSection extends React.Component {
 
   handleChange(config){
     this.setState(config)
+    if(this.props.onChange){
+      this.props.onChange(config)
+    }
   }
 
   handleEnableToggle(){
@@ -143,11 +167,8 @@ class EditorSection extends React.Component {
           </div>
         </div>
         <p>{ def.description }</p>
-        {
-
-          
+        { 
           def.editor ? React.createElement(def.editor, editorProps) : <div/>
-          // def.editor ? React.createElement(def.editor, {config:this.state, onChange:this.handleChange}) : <div/>
         }
         <br/>
         {
