@@ -66,7 +66,7 @@ class Editor extends React.Component {
 
     return (
       <div className='editor'>
-        <QuestionList config={ this.state.config } onAddQuestion={ this.handleAddQuestion }/>
+        <QuestionList config={ this.state.config } configID={ this.state.configID } onAddQuestion={ this.handleAddQuestion }/>
         <div className='current-questions'>
           {
             questions.map((question, i) => {
@@ -91,7 +91,7 @@ class QuestionList extends React.Component {
 
   constructor(props){
     super(props)
-    this.state = {config:props.config}
+    this.state = {config:props.config, configID:props.configID}
     this.handleAdd = this.handleAdd.bind(this)
   }
 
@@ -108,6 +108,7 @@ class QuestionList extends React.Component {
 
     return (
       <div className='question-list'>
+        <a className='generate-button' href={ '/generator/?config=' + this.state.configID + "&pages=5"} target='_blank'>Generate Questions</a>
         {
           questions.map((q) => {
             let exists = this.state.config.questions.findIndex((cq) => cq.name === q.name) !== -1
