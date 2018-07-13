@@ -16,7 +16,8 @@
     "url": "https://github.com/roddeh/kids-maths/issues"
   },
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "server": "./server.rb public 3004"
   },
   "repository": {
     "type": "git",

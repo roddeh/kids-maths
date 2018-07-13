@@ -14,11 +14,10 @@ const defaultProps = {
 class AdditionWithIconsGenerator extends React.Component {
 
   render(){
-    let config = this.props;
-
     let icon = rand(emoji)
-    let left = rand(config.minNumber, config.maxNumber)
-    let right = rand(config.minNumber, config.maxNumber)
+    let left = rand(this.props.minNumber, this.props.maxNumber)
+    let right = rand(this.props.minNumber, this.props.maxNumber)
+    let trace = this.props.includeTraceNumbers
 
     function makeTop(){
       return (
@@ -32,7 +31,7 @@ class AdditionWithIconsGenerator extends React.Component {
     }
 
     function makeBottom(){
-      if(config.includeTraceNumbers){
+      if(trace){
         return (
           <span>
             <span className='trace-number'>{ left }</span>

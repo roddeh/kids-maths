@@ -16,13 +16,21 @@ class Editor extends React.Component {
 
     let query = parseQuery()
 
-    service.loadConfig(query.config)
-      .then((result) => {
-        this.setState({loading:false, configID:query.config, config:result.config})
-      })
-      .catch((error) => {
-        console.log('Handle the error', error);
-      })
+    if(query.config){
+      service.loadConfig(query.config)
+        .then((result) => {
+          this.setState({loading:false, configID:query.config, config:result.config})
+        })
+        .catch((error) => {
+          console.log('Handle the error', error);
+        })  
+    }
+    else{
+     // this.state.createConfig = true 
+     console.log('No config provided');
+    }
+
+    
 
   }
 
@@ -58,6 +66,9 @@ class Editor extends React.Component {
     if(this.state.loading){
       return <div className='loader'>Loading...</div>
     }
+    // if(this.state.noConfig){
+    //   return <CreateConfiguration/>
+    // }
 
     let questions = this.state.config.questions.map((q) => {
       let question = QUESTIONS.find((v) => v.name === q.name)
@@ -179,7 +190,11 @@ class EditorSection extends React.Component {
       </div>
     )
   }
-
 }
+
+// class CreateConfiguration extends React.Component {
+
+
+// }
 
 module.exports = Editor
