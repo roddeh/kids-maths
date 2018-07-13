@@ -16,7 +16,6 @@ const SIZE = 40;
 class GridImageCopyGenerator extends React.Component {
 
   updateCanvas(){
-    console.log(this.props.rotate);
     if(!this.props.rotate){
       return
     }
@@ -60,7 +59,6 @@ class GridImageCopyGenerator extends React.Component {
   }
 
   render(){
-    console.log(this.props);
     let size = this.props.size;
     this.canvasID = 'grid-image-copy-' + (idCounter++);
 
