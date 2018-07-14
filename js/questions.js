@@ -6,6 +6,7 @@ import ChainedArithmetic from './questions/chained_arithmetic'
 import GridImageCopy from './questions/grid_image_copy'
 import ConnectIconsToNumbers from './questions/connect_icons_to_numbers'
 import CountingBySquares from './questions/counting_by_squares'
+import FractionAdditionWithShapes from './questions/fraction_addition_with_shapes'
 
 module.exports = [
   VerticalAddition,
@@ -16,4 +17,5 @@ module.exports = [
   GridImageCopy,
   ConnectIconsToNumbers,
   CountingBySquares,
+  FractionAdditionWithShapes,
 ]

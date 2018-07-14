@@ -22,7 +22,7 @@ class TemplateGenerator extends React.Component {
   }
 }
 
-TemplateGenerator.defaultProps
+TemplateGenerator.defaultProps = defaultProps
 
 class TemplateEditor extends QuestionEditor {
 
@@ -40,7 +40,7 @@ class TemplateEditor extends QuestionEditor {
   }
 }
 
-TemplateEditor.defaultProps
+TemplateEditor.defaultProps = defaultProps
 
 const Template = {
   name: '',
