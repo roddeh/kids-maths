@@ -8,6 +8,7 @@ import ConnectIconsToNumbers from './questions/connect_icons_to_numbers'
 import CountingBySquares from './questions/counting_by_squares'
 import FractionAdditionWithShapes from './questions/fraction_addition_with_shapes'
 import FractionsWithShapes from './questions/fractions_with_shapes'
+import GridPicture from './questions/grid_picture'
 
 module.exports = [
   VerticalAddition,
@@ -20,4 +21,5 @@ module.exports = [
   CountingBySquares,
   FractionAdditionWithShapes,
   FractionsWithShapes,
+  GridPicture,
 ]
