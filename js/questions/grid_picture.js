@@ -4,15 +4,15 @@ import doTimes from '../utils/do_times'
 import rand from '../utils/rand'
 import shuffle from '../utils/shuffle'
 import QuestionEditor from '../question_editor'
+import CheckboxSet from '../checkbox_set'
 
 const ADDITION = '+';
 const SUBTRACTION = '-';
-const MULTIPLICATION = '&times;'
-const DIVISION = '&div;'
+const MULTIPLICATION = String.fromCodePoint(215)
+const DIVISION = String.fromCodePoint(0x00F7)
 
 const defaultProps = {
   operations: [ADDITION, SUBTRACTION, MULTIPLICATION, DIVISION]
-  // operations: [ADDITION, SUBTRACTION, MULTIPLICATION]
 }
 
 const COLS = 8;
@@ -303,36 +303,18 @@ class GridPictureGenerator extends React.Component {
     operationMethodMap[MULTIPLICATION] = multiplication
     operationMethodMap[DIVISION] = division
 
-    
-
     let ops = this.props.operations.map((op) => {
       return {symbol:op, method:operationMethodMap[op]}
     })
     let operation = rand(ops)
-    // let operation = rand([
-    //   {method:addition, symbol:ADDITION},
-    //   {method:subtraction, symbol:SUBTRACTION},
-    //   // {method:multiplication, symbol:MULTIPLICATION},
-    //   // {method:division, symbol:DIVISION},
-    // ]);
-
-    let min = 2;
-    let max = 10;
-
 
     let left;
     let right;
     let answer;
 
-
-    // console.log(pair);
-
     [left, right, answer] = operation.method(pair);
-
-    let question = left + ' ' + operation.symbol + ' ' + right;
+    let question = left + ' ' + operation.symbol + ' ' + right;    
     let top = question + ' = ' + answer;
-
-    // let bottom = `&nbsp;&nbsp;&#8756; ${ pair.letter } = `
     let bottom = `\xA0\xA0${ String.fromCodePoint(0x2234)} ${pair.letter } = `
 
 
@@ -436,63 +418,18 @@ GridPictureGenerator.defaultProps = defaultProps
 
 class GridPictureEditor extends QuestionEditor {
 
-  constructor(props){
-    super(props)
-    this.handleCheckboxSetChange = this.handleCheckboxSetChange.bind(this)
-  }
-
-  handleCheckboxSetChange(event){
-    let ct = event.currentTarget
-    let currentValues = this.state[ct.name]
-    console.log(ct.value, currentValues);
-    let index = currentValues.indexOf(ct.value)
-
-    if(ct.checked){
-      if(index === -1){
-        currentValues.push(ct.value)
-      }
-    }
-    else{
-      if(index !== -1){
-        currentValues.splice(index, 1)
-      }
-    }
-
-    let newValue = {}
-    newValue[ct.name] = currentValues
-
-    console.log(currentValues);
-
-    this.setState(newValue, () => { 
-      if(this.props.onChange){
-        this.props.onChange(this.state)
-      }
-    })
-  }
-
   render(){
-
-    let addition = this.state.operations.indexOf(ADDITION) !== -1
-    let subtraction = this.state.operations.indexOf(SUBTRACTION) !== -1
-    let multiplication = this.state.operations.indexOf(MULTIPLICATION) !== -1
-    let division = this.state.operations.indexOf(DIVISION) !== -1
-
+    let options = [
+      {label:'Addition', value:ADDITION},
+      {label:'Subtraction', value:SUBTRACTION},
+      {label:'Multiplication', value:MULTIPLICATION},
+      {label:'Division', value:DIVISION},
+    ]
     return (
       <div className='editor-form'>
         <label>Included Operations:</label>
         <br/>
-        <label>Addition</label>
-        <input type='checkbox' name='operations' value={ ADDITION } defaultChecked={ addition } onChange={ this.handleCheckboxSetChange }></input>
-        <br/>
-        <label>Subtraction</label>
-        <input type='checkbox' name='operations' value={ SUBTRACTION } defaultChecked={ subtraction } onChange={ this.handleCheckboxSetChange }></input>
-        <br/>
-        <label>Multiplication</label>
-        <input type='checkbox' name='operations' value={ MULTIPLICATION } defaultChecked={ multiplication } onChange={ this.handleCheckboxSetChange }></input>
-        <br/>
-        <label>Division</label>
-        <input type='checkbox' name='operations' value={ DIVISION } defaultChecked={ division } onChange={ this.handleCheckboxSetChange }></input>
-        <br/>
+        <CheckboxSet value={ this.state.operations } options={ options } onChange={ (val) => this.handleCheckboxSetChange('operations', val) }></CheckboxSet>
       </div>
     )
   }

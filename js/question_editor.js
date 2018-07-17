@@ -28,6 +28,11 @@ class QuestionEditor extends React.Component {
   handleRangeChange(event){
     this.handleChange(event.currentTarget.name, parseInt(event.currentTarget.value))
   }
+
+  handleCheckboxSetChange(fieldName, values){
+    this.handleChange(fieldName, values)
+  }
+
 }
 
 module.exports = QuestionEditor
