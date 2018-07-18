@@ -19,6 +19,14 @@ function storeJSONData(key, data){
 
 const service = {
 
+  createConfig(configID){
+    return new Promise((resolve, reject) => {
+      let newConfig = {config:{id:configID, questions:[]}}
+      storeJSONData(configID, newConfig)
+      resolve(newConfig)
+    })
+  },
+
   loadConfig(configID){
     return new Promise((resolve, reject) => {
       let data = loadJSONData(configID)
@@ -28,21 +36,30 @@ const service = {
       else{
         reject('Unable to load data')
       }
-      // resolve({
-      //   config: {
-      //     questions:[
-      //       {name:"verticalAddition", enabled:true, "numDigits":4, carryOver:false},
-      //       {name:"additionWithIcons", enabled:true, "minNumber":3, "maxNumber":12, includeTraceNumbers:true},
-      //       {name:"arithmeticPyramid", enabled:true, "minNumber":6, "maxNumber":12},
-      //       {name:"angleTypes", enabled:true},
-      //     ]
-      //   }
-      // })
     })
   },
 
   saveConfig(configID, data){
     storeJSONData(configID, data)
+  },
+
+  deleteConfig(configID){
+    return new Promise((resolve, reject) => {
+      localStorage.removeItem(configID)
+      resolve()
+    })
+  },
+
+  listConfigs(){
+    return new Promise((resolve, reject) => {
+      let keys = []
+      for(let i = 0; i < localStorage.length; i++){
+        keys.push(localStorage.key(i))
+      }
+      resolve({
+        configs:keys
+      })
+    })
   }
 }
 

@@ -3,12 +3,12 @@
   display flex
   flex-direction row
   
-  .question-list
+  .editor-menu
     min-width 250px
     border-right 1px solid black
     padding 0
     margin 10px
-    .generate-button
+    .generate-button, .config-manager button
       border 1px solid black
       padding 10px 5px
       text-align center
@@ -16,6 +16,11 @@
       text-decoration none
       width calc(100% - 30px)
       margin-bottom 10px
+      
+    input, select
+      width calc(100% - 30px)
+      margin-bottom 5px
+      
     .question-item
       cursor pointer
       height 20px

@@ -75,7 +75,7 @@ class AdditionWithIconsGenerator extends React.Component {
   }
 }
 
-AdditionWithIconsGenerator.defaultProps
+AdditionWithIconsGenerator.defaultProps = defaultProps
 
 class AdditionWithIconsEditor extends QuestionEditor {
 
@@ -97,7 +97,7 @@ class AdditionWithIconsEditor extends QuestionEditor {
   }
 }
 
-AdditionWithIconsEditor.defaultProps
+AdditionWithIconsEditor.defaultProps = defaultProps
 
 const AdditionWithIcons = {
   name: 'additionWithIcons',
