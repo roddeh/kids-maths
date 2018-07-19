@@ -1,6 +1,5 @@
 import React from 'react'
 import c from '../constants'
-import doTimes from '../utils/do_times'
 import rand from '../utils/rand'
 import QuestionEditor from '../question_editor'
 

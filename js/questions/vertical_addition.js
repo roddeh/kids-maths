@@ -44,7 +44,6 @@ class VerticalAdditionGenerator extends React.Component {
       top = zerosToSpace(numbers.top, '0');
       bottom = zerosToSpace(numbers.bottom, '0');
     }
-    
 
     return (
       <div className='simple-vertical-addition'>

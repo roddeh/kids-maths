@@ -7,8 +7,9 @@ class QuestionEditor extends React.Component {
   constructor(props){
     super(props)
     this.state = shallowClone(props)
-    this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
-    this.handleRangeChange = this.handleRangeChange.bind(this);
+    this.handleCheckboxChange = this.handleCheckboxChange.bind(this)
+    this.handleRangeChange = this.handleRangeChange.bind(this)
+    this.handleSelectChange = this.handleSelectChange.bind(this)
   }
 
   handleChange(name, value){
@@ -33,6 +34,9 @@ class QuestionEditor extends React.Component {
     this.handleChange(fieldName, values)
   }
 
+  handleSelectChange(event){
+    this.handleChange(event.currentTarget.name, event.currentTarget.value);
+  }
 }
 
 module.exports = QuestionEditor
