@@ -11,6 +11,8 @@ import FractionsWithShapes from './questions/fractions_with_shapes'
 import GridPicture from './questions/grid_picture'
 import LinearPlot from './questions/linear_plot'
 import MathsTable from './questions/maths_table'
+import MissingNumbers from './questions/missing_numbers'
+import MissingOperation from './questions/missing_operation'
 
 module.exports = [
   VerticalAddition,
@@ -26,4 +28,6 @@ module.exports = [
   GridPicture,
   LinearPlot,
   MathsTable,
+  MissingNumbers,
+  MissingOperation,
 ]
