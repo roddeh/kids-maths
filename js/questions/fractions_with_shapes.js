@@ -75,10 +75,6 @@ class FractionsWithShapesGenerator extends React.Component {
     }
   }
 
-  componentDidMount(){
-    this.updateCanvas()
-  }
-
   componentDidUpdate(){
     this.updateCanvas()
   }

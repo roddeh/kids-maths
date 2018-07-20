@@ -50,10 +50,6 @@ class GridImageCopyGenerator extends React.Component {
     ctx.stroke();
   }
 
-  componentDidMount(){
-    this.updateCanvas()
-  }
-
   componentDidUpdate(){
     this.updateCanvas()
   }

@@ -44,7 +44,7 @@ class CountingBySquaresGenerator extends React.Component {
   }
 }
 
-CountingBySquaresGenerator.defaultProps
+CountingBySquaresGenerator.defaultProps = defaultProps
 
 class CountingBySquaresEditor extends QuestionEditor {
 
@@ -67,7 +67,7 @@ class CountingBySquaresEditor extends QuestionEditor {
   }
 }
 
-CountingBySquaresEditor.defaultProps
+CountingBySquaresEditor.defaultProps = defaultProps
 
 const CountingBySquares = {
   name: 'countingBySquares',

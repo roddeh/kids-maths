@@ -71,10 +71,6 @@ class FractionAdditionWithShapesGenerator extends React.Component {
     drawPies(frac2.num, frac1.divisor, frac1.dividend, document.getElementById(this.canvasRightID).getContext('2d'))
   }
 
-  componentDidMount(){
-    this.updateCanvas()
-  }
-
   componentDidUpdate(){
     this.updateCanvas()
   }

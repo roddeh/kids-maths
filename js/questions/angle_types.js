@@ -29,17 +29,16 @@ class AngleTypesGenerator extends React.Component {
       ctx.stroke();
     }
     
+    ctx.clearRect(0, 0, WIDTH, HEIGHT);
     ctx.save();
     drawLine(firstRotation)
     ctx.restore();
     ctx.beginPath();
     ctx.arc(0, 0, 20, firstRotation - Math.PI / 2, secondRotation - Math.PI / 2, firstRotation < secondRotation);
     ctx.stroke();
+    ctx.save();
     drawLine(secondRotation);
-  }
-
-  componentDidMount(){
-    this.updateCanvas()
+    ctx.restore();
   }
 
   componentDidUpdate(){
