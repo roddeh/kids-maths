@@ -10,6 +10,7 @@ class QuestionEditor extends React.Component {
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this)
     this.handleRangeChange = this.handleRangeChange.bind(this)
     this.handleSelectChange = this.handleSelectChange.bind(this)
+    this.handleTextInputChange = this.handleTextInputChange.bind(this)
   }
 
   handleChange(name, value){
@@ -35,7 +36,11 @@ class QuestionEditor extends React.Component {
   }
 
   handleSelectChange(event){
-    this.handleChange(event.currentTarget.name, event.currentTarget.value);
+    this.handleChange(event.currentTarget.name, event.currentTarget.value)
+  }
+
+  handleTextInputChange(event){
+    this.handleChange(event.currentTarget.name, event.currentTarget.value) 
   }
 }
 

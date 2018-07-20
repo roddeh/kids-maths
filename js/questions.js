@@ -13,6 +13,8 @@ import LinearPlot from './questions/linear_plot'
 import MathsTable from './questions/maths_table'
 import MissingNumbers from './questions/missing_numbers'
 import MissingOperation from './questions/missing_operation'
+import MoneyMath from './questions/money_math'
+import MultiplicationSet from './questions/multiplication_set'
 
 module.exports = [
   VerticalAddition,
@@ -30,4 +32,6 @@ module.exports = [
   MathsTable,
   MissingNumbers,
   MissingOperation,
+  MoneyMath,
+  MultiplicationSet,
 ]
