@@ -224,7 +224,7 @@ class QuestionList extends React.Component {
 
   constructor(props){
     super(props)
-    this.state = {config:props.config, configID:props.configID}
+    this.state = {config:props.config}
     this.handleAdd = this.handleAdd.bind(this)
   }
 
@@ -245,7 +245,7 @@ class QuestionList extends React.Component {
 
     return (
       <div className='question-list'>
-        <a className='generate-button' href={ '/generator/?config=' + this.state.configID + "&pages=5"} target='_blank'>Generate Questions</a>
+        <a className='generate-button' href={ '/generator/?config=' + this.props.configID + "&pages=5"} target='_blank'>Generate Questions</a>
         {
           questions.map((q) => {
             let exists = this.props.config.questions.findIndex((cq) => cq.name === q.name) !== -1
