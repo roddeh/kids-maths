@@ -93,13 +93,7 @@ class MissingNumbersEditor extends QuestionEditor {
     ]
     return (
       <div className='editor-form'>
-        <label>Min Number:</label>
-        <input type='range' name='minNumber' min='1' max='5' step='1' value={ this.state.minNumber } onChange={ this.handleRangeChange }></input>
-        <label>{ this.state.minNumber }</label>
-        <br/>
-        <label>Max Number:</label>
-        <input type='range' name='maxNumber' min='1' max='5' step='1' value={ this.state.maxNumber } onChange={ this.handleRangeChange }></input>
-        <label>{ this.state.maxNumber }</label>
+        { this.renderMinMaxRange(1, 5, 5, 12) }
         <br/>
         <label>Included Operations:</label>
         <br/>

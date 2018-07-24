@@ -82,13 +82,7 @@ class AdditionWithIconsEditor extends QuestionEditor {
   render(){
     return (
       <div className='editor-form'>
-        <label>Minimum number:</label>
-        <input type='range' name='minNumber' min='1' max='5' step='1' value={ this.state.minNumber } onChange={ this.handleRangeChange }></input>
-        <label>{ this.state.minNumber }</label>
-        <br/>
-        <label>Maximum number:</label>
-        <input type='range' name='maxNumber' min='5' max='16' step='1' value={ this.state.maxNumber } onChange={ this.handleRangeChange }></input>
-        <label>{ this.state.maxNumber }</label>
+        { this.renderMinMaxRange(1, 5, 5, 16) }
         <br/>
         <label>Include traceable numbers:</label>
         <input type='checkbox' name='includeTraceNumbers' defaultChecked={ this.state.includeTraceNumbers } onChange={ this.handleCheckboxChange }></input>

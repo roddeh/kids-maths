@@ -54,13 +54,7 @@ class MultiplicationSetEditor extends QuestionEditor {
   render(){
     return (
       <div className='editor-form'>
-        <label>Minimum number:</label>
-        <input type='range' name='minNumber' min='1' max='5' step='1' value={ this.state.minNumber } onChange={ this.handleRangeChange }></input>
-        <label>{ this.state.minNumber }</label>
-        <br/>
-        <label>Maximum number:</label>
-        <input type='range' name='maxNumber' min='5' max='16' step='1' value={ this.state.maxNumber } onChange={ this.handleRangeChange }></input>
-        <label>{ this.state.maxNumber }</label>
+        { this.renderMinMaxRange(1, 5, 5, 16) }
         <br/>
         <label>Randomise Order:</label>
         <input type='checkbox' name='randomiseOrder' defaultChecked={ this.state.randomiseOrder } onChange={ this.handleCheckboxChange }></input>

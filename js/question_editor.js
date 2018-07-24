@@ -42,6 +42,24 @@ class QuestionEditor extends React.Component {
   handleTextInputChange(event){
     this.handleChange(event.currentTarget.name, event.currentTarget.value) 
   }
+
+  // ---
+  // Helper 
+
+  renderMinMaxRange(minStart, minEnd, maxStart, maxEnd){
+    return (
+      <React.Fragment>
+        <label>Minimum number:</label>
+        <input type='range' name='minNumber' min={ minStart } max={ minEnd } step='1' value={ this.state.minNumber } onChange={ this.handleRangeChange }></input>
+        <label>{ this.state.minNumber }</label>
+        <br/>
+        <label>Maximum number:</label>
+        <input type='range' name='maxNumber' min={ maxStart } max={ maxEnd } step='1' value={ this.state.maxNumber } onChange={ this.handleRangeChange }></input>
+        <label>{ this.state.maxNumber }</label>
+      </React.Fragment>
+    )
+  }
+
 }
 
 module.exports = QuestionEditor

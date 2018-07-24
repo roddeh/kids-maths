@@ -75,10 +75,13 @@ class FractionsWithShapesGenerator extends React.Component {
     }
   }
 
-  componentDidUpdate(){
+  componentDidMount(){
     this.updateCanvas()
   }
 
+  componentDidUpdate(){
+    this.updateCanvas()
+  }
 
   render(){
     this.canvasID = 'fractions-with-shapes-' + (idCounter++);

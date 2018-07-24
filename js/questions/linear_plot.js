@@ -97,6 +97,10 @@ class LinearPlotGenerator extends React.Component {
     }
   }
 
+  componentDidMount(){
+    this.updateCanvas()
+  }
+  
   componentDidUpdate(){
     this.updateCanvas()
   }

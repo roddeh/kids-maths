@@ -41,6 +41,10 @@ class AngleTypesGenerator extends React.Component {
     ctx.restore();
   }
 
+  componentDidMount(){
+    this.updateCanvas()
+  }
+
   componentDidUpdate(){
     this.updateCanvas()
   }
