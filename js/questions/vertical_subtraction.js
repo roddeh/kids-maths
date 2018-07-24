@@ -11,7 +11,7 @@ const defaultProps = {
   carryOver: false,
 }
 
-class VerticalAdditionGenerator extends React.Component {
+class VerticalSubtractionGenerator extends React.Component {
 
   render(){
     let numDigits = this.props.numDigits
@@ -20,21 +20,18 @@ class VerticalAdditionGenerator extends React.Component {
 
     if(this.props.carryOver){
       let max = Math.pow(10, numDigits) - 1
-      top = String(rand(0, max))
-      bottom = String(rand(0, max))
+      top = rand(0, max)
+      bottom = String(rand(0, top))
+      top = String(top)
     }
     else{
       function makeNumberPair(i){
         let a = rand(0, 9);
         let b = rand(0, 9 - a)
-
-        if(rand(1) === 1){
-          return [a, b];
-        }
-        return [b, a];
+        return (a > b) ? [a, b] : [b, a];
       }
 
-      let numbers = doTimes(this.props.numDigits, makeNumberPair)
+      let numbers = doTimes(numDigits, makeNumberPair)
         .reduce((nums, pair) => {
           nums.top += pair[0];
           nums.bottom += pair[1];
@@ -48,19 +45,19 @@ class VerticalAdditionGenerator extends React.Component {
       <div className='vertical-arithmetic'>
         {pad(2 + numDigits - top.length) + top }
         <br/>
-        { '+' + pad(1 + numDigits - bottom.length) + bottom }
+        { '-' + pad(1 + numDigits - bottom.length) + bottom }
         <br/>
         {
           doTimes(numDigits + 2, () => { return '‾'}).join('')
         }
       </div>
-    )    
+    )
   }
 }
 
-VerticalAdditionGenerator.defaultProps = defaultProps;
+VerticalSubtractionGenerator.defaultProps = defaultProps;
 
-class VerticalAdditionEditor extends QuestionEditor {
+class VerticalSubtractionEditor extends QuestionEditor {
 
   render(){
     return (
@@ -76,16 +73,16 @@ class VerticalAdditionEditor extends QuestionEditor {
   }
 }
 
-VerticalAdditionEditor.defaultProps = defaultProps;
+VerticalSubtractionEditor.defaultProps = defaultProps;
 
-const VerticalAddition = {
-  name: 'verticalAddition',
-  title: 'Vertical Addition',
-  description: 'Learn addition of large numbers. To start with you can exclude questions with \'carry over\'.',
+const VerticalSubtraction = {
+  name: 'verticalSubtraction',
+  title: 'Vertical Subtraction',
+  description: 'Learn subtraction of large numbers. To start with you can exclude questions with \'carry over\'.',
   difficultyLevel:3,
   layoutType: c.questionShapes.SMALL_SQUARE,
-  generator: VerticalAdditionGenerator,
-  editor: VerticalAdditionEditor,
+  generator: VerticalSubtractionGenerator,
+  editor: VerticalSubtractionEditor,
 }
 
-module.exports = VerticalAddition
+module.exports = VerticalSubtraction

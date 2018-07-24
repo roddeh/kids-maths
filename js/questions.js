@@ -25,6 +25,7 @@ import SimpleArithmetic from './questions/simple_arithmetic'
 import SimpleAlgebra from './questions/simple_algebra'
 
 import VerticalAddition from './questions/vertical_addition'
+import VerticalSubtraction from './questions/vertical_subtraction'
 
 module.exports = [
   AdditionWithIcons,
@@ -55,4 +56,5 @@ module.exports = [
 
 
   VerticalAddition,
+  VerticalSubtraction,
 ]
