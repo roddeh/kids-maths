@@ -19,6 +19,10 @@ import MultiplicationWithCubes from './questions/multiplication_with_cubes'
 import MultiplicationWithIcons from './questions/multiplication_with_icons'
 import NumberLine from './questions/number_line'
 import OrderOfOperations from './questions/order_of_operations'
+import PatternSequence from './questions/pattern_sequence'
+import RotatedShape from './questions/rotated_shape'
+import SimpleArithmetic from './questions/simple_arithmetic'
+// import SimpleAlgebra from './questions/simple_algebra'
 
 import VerticalAddition from './questions/vertical_addition'
 
@@ -44,7 +48,10 @@ module.exports = [
   MultiplicationWithIcons,
   NumberLine,
   OrderOfOperations,
-
+  PatternSequence,
+  RotatedShape,
+  SimpleArithmetic,
+  // SimpleAlgebra
 
 
   VerticalAddition,
