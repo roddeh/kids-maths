@@ -22,7 +22,7 @@ import OrderOfOperations from './questions/order_of_operations'
 import PatternSequence from './questions/pattern_sequence'
 import RotatedShape from './questions/rotated_shape'
 import SimpleArithmetic from './questions/simple_arithmetic'
-// import SimpleAlgebra from './questions/simple_algebra'
+import SimpleAlgebra from './questions/simple_algebra'
 
 import VerticalAddition from './questions/vertical_addition'
 
@@ -51,7 +51,7 @@ module.exports = [
   PatternSequence,
   RotatedShape,
   SimpleArithmetic,
-  // SimpleAlgebra
+  SimpleAlgebra,
 
 
   VerticalAddition,
