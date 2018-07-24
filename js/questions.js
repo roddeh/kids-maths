@@ -18,7 +18,7 @@ import MultiplicationSquares from './questions/multiplication_squares'
 import MultiplicationWithCubes from './questions/multiplication_with_cubes'
 import MultiplicationWithIcons from './questions/multiplication_with_icons'
 import NumberLine from './questions/number_line'
-
+import OrderOfOperations from './questions/order_of_operations'
 
 import VerticalAddition from './questions/vertical_addition'
 
@@ -43,8 +43,9 @@ module.exports = [
   MultiplicationWithCubes,
   MultiplicationWithIcons,
   NumberLine,
+  OrderOfOperations,
 
-  
+
 
   VerticalAddition,
 ]
