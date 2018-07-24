@@ -1,4 +1,3 @@
-import VerticalAddition from './questions/vertical_addition'
 import AdditionWithIcons from './questions/addition_with_icons'
 import AngleTypes from './questions/angle_types'
 import ArithmeticPyramid from './questions/arithmetic_pyramid'
@@ -18,9 +17,12 @@ import MultiplicationSet from './questions/multiplication_set'
 import MultiplicationSquares from './questions/multiplication_squares'
 import MultiplicationWithCubes from './questions/multiplication_with_cubes'
 import MultiplicationWithIcons from './questions/multiplication_with_icons'
+import NumberLine from './questions/number_line'
+
+
+import VerticalAddition from './questions/vertical_addition'
 
 module.exports = [
-  VerticalAddition,
   AdditionWithIcons,
   ArithmeticPyramid,
   AngleTypes,
@@ -40,4 +42,9 @@ module.exports = [
   MultiplicationSquares,
   MultiplicationWithCubes,
   MultiplicationWithIcons,
+  NumberLine,
+
+  
+
+  VerticalAddition,
 ]
