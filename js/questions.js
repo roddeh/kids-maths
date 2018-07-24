@@ -17,6 +17,7 @@ import MoneyMath from './questions/money_math'
 import MultiplicationSet from './questions/multiplication_set'
 import MultiplicationSquares from './questions/multiplication_squares'
 import MultiplicationWithCubes from './questions/multiplication_with_cubes'
+import MultiplicationWithIcons from './questions/multiplication_with_icons'
 
 module.exports = [
   VerticalAddition,
@@ -38,4 +39,5 @@ module.exports = [
   MultiplicationSet,
   MultiplicationSquares,
   MultiplicationWithCubes,
+  MultiplicationWithIcons,
 ]
