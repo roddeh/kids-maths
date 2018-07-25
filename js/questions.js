@@ -23,8 +23,13 @@ import PatternSequence from './questions/pattern_sequence'
 import RotatedShape from './questions/rotated_shape'
 import SimpleArithmetic from './questions/simple_arithmetic'
 import SimpleAlgebra from './questions/simple_algebra'
+import SingleVariableAlgebra from './questions/single_variable_algebra'
+
+
+import TimeDistanceSpeed from './questions/time_distance_speed'
 
 import VerticalAddition from './questions/vertical_addition'
+import VerticalDivision from './questions/vertical_division'
 import VerticalMultiplication from './questions/vertical_multiplication'
 import VerticalSubtraction from './questions/vertical_subtraction'
 
@@ -54,9 +59,13 @@ module.exports = [
   RotatedShape,
   SimpleArithmetic,
   SimpleAlgebra,
+  SingleVariableAlgebra,
 
+
+  TimeDistanceSpeed,
 
   VerticalAddition,
+  VerticalDivision,
   VerticalMultiplication,
   VerticalSubtraction,
 ]
