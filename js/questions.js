@@ -24,7 +24,7 @@ import RotatedShape from './questions/rotated_shape'
 import SimpleArithmetic from './questions/simple_arithmetic'
 import SimpleAlgebra from './questions/simple_algebra'
 import SingleVariableAlgebra from './questions/single_variable_algebra'
-
+import StoryArithmetic from './questions/story_arithmetic'
 
 import TimeDistanceSpeed from './questions/time_distance_speed'
 
@@ -60,7 +60,7 @@ module.exports = [
   SimpleArithmetic,
   SimpleAlgebra,
   SingleVariableAlgebra,
-
+  StoryArithmetic,
 
   TimeDistanceSpeed,
 
