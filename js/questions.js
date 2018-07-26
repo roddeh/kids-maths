@@ -27,7 +27,8 @@ import SingleVariableAlgebra from './questions/single_variable_algebra'
 import StoryArithmetic from './questions/story_arithmetic'
 import TimeDistanceSpeed from './questions/time_distance_speed'
 import TraceLetter from './questions/trace_letter'
-
+import TraceNumber from './questions/trace_number'
+import TriangleAngles from './questions/triangle_angles'
 import VerticalAddition from './questions/vertical_addition'
 import VerticalDivision from './questions/vertical_division'
 import VerticalMultiplication from './questions/vertical_multiplication'
@@ -63,7 +64,8 @@ module.exports = [
   StoryArithmetic,
   TimeDistanceSpeed,
   TraceLetter,
-
+  TraceNumber,
+  TriangleAngles,
   VerticalAddition,
   VerticalDivision,
   VerticalMultiplication,
