@@ -25,8 +25,8 @@ import SimpleArithmetic from './questions/simple_arithmetic'
 import SimpleAlgebra from './questions/simple_algebra'
 import SingleVariableAlgebra from './questions/single_variable_algebra'
 import StoryArithmetic from './questions/story_arithmetic'
-
 import TimeDistanceSpeed from './questions/time_distance_speed'
+import TraceLetter from './questions/trace_letter'
 
 import VerticalAddition from './questions/vertical_addition'
 import VerticalDivision from './questions/vertical_division'
@@ -61,8 +61,8 @@ module.exports = [
   SimpleAlgebra,
   SingleVariableAlgebra,
   StoryArithmetic,
-
   TimeDistanceSpeed,
+  TraceLetter,
 
   VerticalAddition,
   VerticalDivision,
