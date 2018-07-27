@@ -80,7 +80,7 @@ ArithmeticPyramidEditor.defaultProps = defaultProps
 const ArithmeticPyramid = {
   name: 'arithmeticPyramid',
   title: 'Arithmetic Pyramid',
-  difficultyLevel: 3,
+  difficultyLevel: 5,
   description: 'Practise arithmetic by adding and subtracting numbers to get to the top.',
   layoutType: c.questionShapes.LARGE_SQUARE,
   generator: ArithmeticPyramidGenerator,

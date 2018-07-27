@@ -101,7 +101,7 @@ const SimpleArithmetic = {
   name: 'simpleArithmetic',
   title: 'Simple Arithmetic',
   description: 'Practise arithmetic',
-  difficultyLevel:0,
+  difficultyLevel:2,
   layoutType: c.questionShapes.WIDE_RECT,
   generator: SimpleArithmeticGenerator,
   editor: SimpleArithmeticEditor,

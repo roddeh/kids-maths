@@ -88,7 +88,7 @@ const OrderOfOperations = {
   name: 'orderOfOperations',
   title: 'Order of Operations',
   description: 'Practise using arithmetic that requires understanding of the order of operations.',
-  difficultyLevel:0,
+  difficultyLevel:7,
   layoutType: c.questionShapes.WIDE_RECT,
   generator: OrderOfOperationsGenerator,
   editor: OrderOfOperationsEditor,

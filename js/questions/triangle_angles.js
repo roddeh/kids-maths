@@ -79,7 +79,7 @@ const TriangleAngles = {
   name: 'triangleAngles',
   title: 'Triangle Angles',
   description: 'Learn about measuring angles and how they relate to triangles',
-  difficultyLevel:0,
+  difficultyLevel:6,
   layoutType: c.questionShapes.LARGE_SQUARE,
   generator: TriangleAnglesGenerator,
   editor: TriangleAnglesEditor,

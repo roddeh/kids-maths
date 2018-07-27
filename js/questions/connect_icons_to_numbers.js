@@ -63,7 +63,7 @@ const ConnectIconsToNumbers = {
   name: 'connectIconsToNumbers',
   title: 'Connect Icons To Numbers',
   description: 'Learn the association between quantity and written numbers',
-  difficultyLevel:0,
+  difficultyLevel:1,
   layoutType: c.questionShapes.WIDE_RECT,
   generator: ConnectIconsToNumbersGenerator,
   editor: ConnectIconsToNumbersEditor,

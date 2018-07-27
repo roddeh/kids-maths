@@ -53,7 +53,7 @@ const MoneyMath = {
   name: 'moneyMath',
   title: 'Money Math',
   description: 'Learn the basics of money based arithmetic combining multiplication and addition',
-  difficultyLevel:5,
+  difficultyLevel:7,
   layoutType: c.questionShapes.WIDE_RECT,
   generator: MoneyMathGenerator,
   editor: MoneyMathEditor,

@@ -81,7 +81,7 @@ const VerticalMultiplication = {
   name: 'verticalMultiplication',
   title: 'Vertical Multiplication',
   description: 'Learn multiplication of large numbers. To start with you can exclude questions with \'carry over\'.',
-  difficultyLevel:4,
+  difficultyLevel:5,
   layoutType: c.questionShapes.SMALL_SQUARE,
   generator: VerticalMultiplicationGenerator,
   editor: VerticalMultiplicationEditor,

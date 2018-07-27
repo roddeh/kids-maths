@@ -138,7 +138,7 @@ const GridImageCopy = {
   name: 'gridImageCopy',
   title: 'Grid Image Copy',
   description: 'Copy the image into the grid. Optionally rotate the image to add an extra challenge',
-  difficultyLevel:4,
+  difficultyLevel:2,
   layoutType: c.questionShapes.WIDE_RECT,
   generator: GridImageCopyGenerator,
   editor: GridImageCopyEditor,

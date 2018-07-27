@@ -59,7 +59,7 @@ const SingleVariableAlgebra = {
   name: 'singleVariableAlgebra',
   title: 'Single Variable Algebra',
   description: 'Learn the basics of algebra by balancing each side of the equation.',
-  difficultyLevel:6,
+  difficultyLevel:10,
   layoutType: c.questionShapes.SMALL_SQUARE,
   generator: SingleVariableAlgebraGenerator,
   editor: SingleVariableAlgebraEditor,

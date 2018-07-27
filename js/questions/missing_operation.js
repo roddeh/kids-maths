@@ -100,7 +100,7 @@ const MissingOperation = {
   name: 'missingOperation',
   title: 'Missing Operation',
   description: 'Fill in the missing operation to complete the equation.',
-  difficultyLevel:2,
+  difficultyLevel:3,
   layoutType: c.questionShapes.SMALL_SQUARE,
   generator: MissingOperationGenerator,
   editor: MissingOperationEditor,

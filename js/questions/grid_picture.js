@@ -441,7 +441,7 @@ const GridPicture = {
   name: 'gridPicture',
   title: 'Grid Picture',
   description: 'Learn basic algebra and problem solving to discover the mystery picture.  Kids need to solve the algebraic questions to discover the value of the letters.  Then use the letters to determine the colours.  Finally, colour in the grid based on the coordinates associated with each colour.',
-  difficultyLevel:0,
+  difficultyLevel:5,
   layoutType: c.questionShapes.DOUBLE_LARGE_SQUARE,
   generator: GridPictureGenerator,
   editor: GridPictureEditor,

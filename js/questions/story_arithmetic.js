@@ -198,7 +198,7 @@ const StoryArithmetic = {
   name: 'storyArithmetic',
   title: 'Story Arithmetic',
   description: 'Practise arithmetic in the context of a mini story.',
-  difficultyLevel:3,
+  difficultyLevel:2,
   layoutType: c.questionShapes.WIDE_RECT,
   generator: StoryArithmeticGenerator,
   editor: StoryArithmeticEditor,

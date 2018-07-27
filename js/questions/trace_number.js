@@ -52,7 +52,7 @@ const TraceNumber = {
   name: 'traceNumber',
   title: 'Trace Number',
   description: 'Practise writing numbers and associating them with quantities using trace guides.',
-  difficultyLevel:0,
+  difficultyLevel:1,
   layoutType: c.questionShapes.WIDE_RECT,
   generator: TraceNumberGenerator,
   editor: TraceNumberEditor,

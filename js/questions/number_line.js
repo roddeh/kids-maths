@@ -91,7 +91,7 @@ const NumberLine = {
   name: 'numberLine',
   title: 'Number Line',
   description: 'Learn about positive and negative numbers with the visual aid of the number line.',
-  difficultyLevel:0,
+  difficultyLevel:4,
   layoutType: c.questionShapes.WIDE_RECT,
   generator: NumberLineGenerator,
   editor: NumberLineEditor,

@@ -64,7 +64,7 @@ const VerticalDivision = {
   name: 'verticalDivision',
   title: 'Vertical Division',
   description: 'Learn division of large numbers.',
-  difficultyLevel:3,
+  difficultyLevel:5,
   layoutType: c.questionShapes.SMALL_SQUARE,
   generator: VerticalDivisionGenerator,
   editor: VerticalDivisionEditor,

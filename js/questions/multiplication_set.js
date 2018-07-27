@@ -69,7 +69,7 @@ const MultiplicationSet = {
   name: 'multiplicationSet',
   title: 'Multiplication Set',
   description: 'Practise multiplication with simple drills',
-  difficultyLevel:4,
+  difficultyLevel:5,
   layoutType: c.questionShapes.TALL_RECT,
   generator: MultiplicationSetGenerator,
   editor: MultiplicationSetEditor,

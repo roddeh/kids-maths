@@ -255,7 +255,7 @@ const RotatedShape = {
   name: 'rotatedShape',
   title: 'Rotated Shape',
   description: 'Find the shapes that match by mentally rotating them',
-  difficultyLevel:3,
+  difficultyLevel:2,
   layoutType: c.questionShapes.WIDE_RECT,
   generator: RotatedShapeGenerator,
   editor: RotatedShapeEditor,

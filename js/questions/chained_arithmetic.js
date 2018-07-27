@@ -83,7 +83,7 @@ const ChainedArithmetic = {
   name: 'chainedArithmetic',
   title: 'Chained Arithmetic',
   description: 'Practise basic arithmetic with a sequence of addition and subtraction of numbers',
-  difficultyLevel:2,
+  difficultyLevel:3,
   layoutType: c.questionShapes.WIDE_RECT,
   generator: ChainedArithmeticGenerator,
   editor: ChainedArithmeticEditor,

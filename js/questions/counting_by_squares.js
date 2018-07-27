@@ -67,7 +67,7 @@ const CountingBySquares = {
   name: 'countingBySquares',
   title: 'Counting by Squares',
   description: 'Teach the fundamentals of multiplication by counting up rows of squares.',
-  difficultyLevel:0,
+  difficultyLevel:4,
   layoutType: c.questionShapes.WIDE_RECT,
   generator: CountingBySquaresGenerator,
   editor: CountingBySquaresEditor,

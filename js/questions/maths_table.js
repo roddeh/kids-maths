@@ -109,7 +109,7 @@ const MathsTable = {
   name: 'mathsTable',
   title: 'Maths Table',
   description: 'Practice addition and multiplication in a table layout',
-  difficultyLevel:0,
+  difficultyLevel:3,
   layoutType: c.questionShapes.LARGE_SQUARE,
   generator: MathsTableGenerator,
   editor: MathsTableEditor,

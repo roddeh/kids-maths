@@ -122,7 +122,7 @@ const FractionsWithShapes = {
   name: 'fractionsWithShapes',
   title: 'Fractions with Shapes',
   description: 'Learn about fractions visually.',
-  difficultyLevel:4,
+  difficultyLevel:6,
   layoutType: c.questionShapes.WIDE_RECT,
   generator: FractionsWithShapesGenerator,
   editor: FractionsWithShapesEditor,

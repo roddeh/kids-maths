@@ -64,7 +64,7 @@ const AngleTypes = {
   name: 'angleTypes',
   title: 'Angle Types',
   description: 'Learn about the different types of angles and how to measure them.',
-  difficultyLevel:4,
+  difficultyLevel:5,
   layoutType: c.questionShapes.SMALL_SQUARE,
   generator: AngleTypesGenerator,
   editor: null,

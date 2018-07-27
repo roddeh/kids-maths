@@ -243,6 +243,18 @@ class QuestionList extends React.Component {
       return a.difficultyLevel - b.difficultyLevel
     })
 
+    let currentLevel = -1
+
+    function renderLevelHeader(q){
+      if(q.difficultyLevel === currentLevel){
+        return null
+      }
+      else{
+        currentLevel = q.difficultyLevel
+        return <div className='question-level-header'>Level { currentLevel }</div>
+      }
+    }
+
     return (
       <div className='question-list'>
         <a className='generate-button' href={ '/generator/?config=' + this.props.configID + "&pages=5"} target='_blank'>Generate Questions</a>
@@ -250,10 +262,15 @@ class QuestionList extends React.Component {
           questions.map((q) => {
             let exists = this.props.config.questions.findIndex((cq) => cq.name === q.name) !== -1
             return (
-              <div className='question-item' key={ q.name }>
-                { q.title }
-                { exists ? <span className='checkmark'>{ String.fromCodePoint(0x2714) }</span> : <button className='add-button' onClick={ () => { this.handleAdd(q.name) }}>+</button>}
-              </div>
+              <React.Fragment key={ q.name }>
+                {
+                  renderLevelHeader(q)
+                }
+                <div className='question-item'>
+                  { q.title }
+                  { exists ? <span className='checkmark'>{ String.fromCodePoint(0x2714) }</span> : <button className='add-button' onClick={ () => { this.handleAdd(q.name) }}>+</button>}
+                </div>
+              </React.Fragment>
             )
           })
         } 
@@ -346,13 +363,6 @@ class ListConfigs extends React.Component {
   }
 
   render(){
-
-    //configID
-
-    // console.log('cfgID', this.props.configID);
-    // let def = 'asdf'
-
-
     return (
       <div>
         <select onChange={ this.handleSelectChange } defaultValue={ this.state.selectedConfig }>

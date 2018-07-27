@@ -109,7 +109,7 @@ const MissingNumbers = {
   name: 'missingNumbers',
   title: 'Missing Numbers',
   description: 'Fill in the missing numbers to complete the equation.',
-  difficultyLevel:2,
+  difficultyLevel:3,
   layoutType: c.questionShapes.SMALL_SQUARE,
   generator: MissingNumbersGenerator,
   editor: MissingNumbersEditor,

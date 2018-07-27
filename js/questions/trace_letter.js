@@ -77,7 +77,7 @@ const TraceLetter = {
   name: 'traceLetter',
   title: 'Trace Letter',
   description: 'Practise writing letters with dotted trace guides.',
-  difficultyLevel:0,
+  difficultyLevel:1,
   layoutType: c.questionShapes.SMALL_SQUARE,
   generator: TraceLetterGenerator,
   editor: TraceLetterEditor,

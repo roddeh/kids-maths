@@ -133,7 +133,7 @@ const LinearPlot = {
   name: 'linearPlot',
   title: 'Linear Plot',
   description: 'Learn line geometry by plotting simple equations.',
-  difficultyLevel:5,
+  difficultyLevel:12,
   layoutType: c.questionShapes.DOUBLE_LARGE_SQUARE,
   generator: LinearPlotGenerator,
   editor: LinearPlotEditor,

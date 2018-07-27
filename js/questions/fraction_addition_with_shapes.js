@@ -133,7 +133,7 @@ const FractionAdditionWithShapes = {
   name: 'fractionAdditionWithShapes',
   title: 'Fraction Addition',
   description: 'Learn about addition of fractions visually',
-  difficultyLevel:4,
+  difficultyLevel:7,
   layoutType: c.questionShapes.WIDE_RECT,
   generator: FractionAdditionWithShapesGenerator,
   editor: FractionAdditionWithShapesEditor,
