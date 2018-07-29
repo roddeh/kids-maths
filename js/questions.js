@@ -2,6 +2,7 @@ import AdditionWithIcons from './questions/addition_with_icons'
 import AngleTypes from './questions/angle_types'
 import ArithmeticPyramid from './questions/arithmetic_pyramid'
 import ChainedArithmetic from './questions/chained_arithmetic'
+import ClockTime from './questions/clock_time'
 import GridImageCopy from './questions/grid_image_copy'
 import ConnectIconsToNumbers from './questions/connect_icons_to_numbers'
 import CountingBySquares from './questions/counting_by_squares'
@@ -39,6 +40,7 @@ module.exports = [
   ArithmeticPyramid,
   AngleTypes,
   ChainedArithmetic,
+  ClockTime,
   GridImageCopy,
   ConnectIconsToNumbers,
   CountingBySquares,

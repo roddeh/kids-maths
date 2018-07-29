@@ -58,8 +58,8 @@ SingleVariableAlgebraEditor.defaultProps = defaultProps
 const SingleVariableAlgebra = {
   name: 'singleVariableAlgebra',
   title: 'Single Variable Algebra',
-  description: 'Learn the basics of algebra by balancing each side of the equation.',
-  difficultyLevel:10,
+  description: 'Learn the concepts of algebra by balancing each side of the equation.',
+  difficultyLevel:11,
   layoutType: c.questionShapes.SMALL_SQUARE,
   generator: SingleVariableAlgebraGenerator,
   editor: SingleVariableAlgebraEditor,

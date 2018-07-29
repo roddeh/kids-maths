@@ -52,11 +52,11 @@ class AngleTypesGenerator extends React.Component {
   render(){
     this.canvasID = 'angle-types-' + (idCounter++);
     return (
-      <div className="angle-types">
+      <div className='angle-types'>
         <span>Name and measure the angle.</span>
         <canvas id={ this.canvasID } width={ WIDTH } height={ HEIGHT }></canvas>
       </div>
-    )    
+    )
   }
 }
 
