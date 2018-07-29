@@ -32,10 +32,10 @@ class ClockTimeGenerator extends React.Component {
     }
 
     if(this.props.intervals){
-      min = rand(4) * 15
+      min = rand(3) * 15
     }
     else{
-       min = rand(60)
+       min = rand(59)
     }
 
     if(Math.random() > 0.5){

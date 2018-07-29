@@ -21,10 +21,12 @@ import MultiplicationWithIcons from './questions/multiplication_with_icons'
 import NumberLine from './questions/number_line'
 import OrderOfOperations from './questions/order_of_operations'
 import PatternSequence from './questions/pattern_sequence'
+import ProjectionsToShape from './questions/projections_to_shape'
 import RotatedShape from './questions/rotated_shape'
 import SimpleArithmetic from './questions/simple_arithmetic'
 import SimpleAlgebra from './questions/simple_algebra'
 import SingleVariableAlgebra from './questions/single_variable_algebra'
+import ShapeProejections from './questions/shape_projections'
 import StoryArithmetic from './questions/story_arithmetic'
 import TimeDistanceSpeed from './questions/time_distance_speed'
 import TraceLetter from './questions/trace_letter'
@@ -59,10 +61,12 @@ module.exports = [
   NumberLine,
   OrderOfOperations,
   PatternSequence,
+  ProjectionsToShape,
   RotatedShape,
   SimpleArithmetic,
   SimpleAlgebra,
   SingleVariableAlgebra,
+  ShapeProejections,
   StoryArithmetic,
   TimeDistanceSpeed,
   TraceLetter,

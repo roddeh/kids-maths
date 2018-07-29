@@ -57,10 +57,10 @@ class MultiplicationWithCubesGenerator extends React.Component {
 
   drawCube(ctx, x, y, s){
     let yMod = 0.3;
-    ctx.fillStyle = '#FFF';
     ctx.strokeStyle = '#000';
     
     // Top Face
+    ctx.fillStyle = '#FFF';
     ctx.beginPath();
     ctx.moveTo(x, y);
     ctx.lineTo(x + s * 0.75, y - s * yMod);
@@ -70,6 +70,7 @@ class MultiplicationWithCubesGenerator extends React.Component {
     ctx.fill();
     ctx.stroke();  
     // Left Face
+    ctx.fillStyle = '#CCC';
     ctx.beginPath();
     ctx.moveTo(x, y);
     ctx.lineTo(x, y + s);
@@ -79,6 +80,7 @@ class MultiplicationWithCubesGenerator extends React.Component {
     ctx.fill();
     ctx.stroke();
     // // Right Face
+    ctx.fillStyle = '#999';
     ctx.beginPath();
     ctx.moveTo(x + s * 0.75, y + s * (1 + yMod));
     ctx.lineTo(x + s * 1.5, y + s);
