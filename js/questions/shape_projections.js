@@ -33,8 +33,6 @@ class ShapeProjectionsGenerator extends React.Component {
     let leftShape = rand(PROJECTION_SHAPES)
     let rightShape = rand(PROJECTION_SHAPES)
     let topShape = rand(PROJECTION_SHAPES)
-
-    console.log(leftShape);
     
     let size = 40;    
     let totalHeight = size * h + (w + l) * size * 0.3;
@@ -66,7 +64,6 @@ class ShapeProjectionsGenerator extends React.Component {
     let yMod = 0.3;
     ctx.fillStyle = '#FFF';
     ctx.strokeStyle = '#000';
-    
     // Top Face
     ctx.beginPath();
     ctx.moveTo(x, y);
@@ -163,7 +160,7 @@ ShapeProjectionsEditor.defaultProps = defaultProps
 const ShapeProjections = {
   name: 'shapeProjections',
   title: 'Shape Projections',
-  description: '',
+  description: 'Mentally map 3-Dimensinoal shapes onto their respective projections.',
   difficultyLevel:7,
   layoutType: c.questionShapes.DOUBLE_LARGE_SQUARE,
   generator: ShapeProjectionsGenerator,

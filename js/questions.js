@@ -22,6 +22,7 @@ import NumberLine from './questions/number_line'
 import OrderOfOperations from './questions/order_of_operations'
 import PatternSequence from './questions/pattern_sequence'
 import ProjectionsToShape from './questions/projections_to_shape'
+import Pythagoras from './questions/pythagoras'
 import RotatedShape from './questions/rotated_shape'
 import SimpleArithmetic from './questions/simple_arithmetic'
 import SimpleAlgebra from './questions/simple_algebra'
@@ -62,6 +63,7 @@ module.exports = [
   OrderOfOperations,
   PatternSequence,
   ProjectionsToShape,
+  Pythagoras,
   RotatedShape,
   SimpleArithmetic,
   SimpleAlgebra,
