@@ -2,12 +2,14 @@ import AdditionWithIcons from './questions/addition_with_icons'
 import AngleTypes from './questions/angle_types'
 import ArithmeticPyramid from './questions/arithmetic_pyramid'
 import ChainedArithmetic from './questions/chained_arithmetic'
+import CircleGeometry from './questions/circle_geometry'
 import ClockTime from './questions/clock_time'
 import GridImageCopy from './questions/grid_image_copy'
 import ConnectIconsToNumbers from './questions/connect_icons_to_numbers'
 import CountingBySquares from './questions/counting_by_squares'
 import FractionAdditionWithShapes from './questions/fraction_addition_with_shapes'
 import FractionsWithShapes from './questions/fractions_with_shapes'
+import FourColourMapTheorem from './questions/four_colour_map_theorem'
 import GridPicture from './questions/grid_picture'
 import LinearPlot from './questions/linear_plot'
 import MathsTable from './questions/maths_table'
@@ -43,10 +45,12 @@ module.exports = [
   ArithmeticPyramid,
   AngleTypes,
   ChainedArithmetic,
+  CircleGeometry,
   ClockTime,
   GridImageCopy,
   ConnectIconsToNumbers,
   CountingBySquares,
+  FourColourMapTheorem,
   FractionAdditionWithShapes,
   FractionsWithShapes,
   GridPicture,

@@ -118,17 +118,6 @@ class LinearPlotGenerator extends React.Component {
 
 LinearPlotGenerator.defaultProps = defaultProps
 
-class LinearPlotEditor extends QuestionEditor {
-
-  render(){
-    return (
-      <div className='editor-form'></div>
-    )
-  }
-}
-
-LinearPlotEditor.defaultProps = defaultProps
-
 const LinearPlot = {
   name: 'linearPlot',
   title: 'Linear Plot',
@@ -136,7 +125,7 @@ const LinearPlot = {
   difficultyLevel:12,
   layoutType: c.questionShapes.DOUBLE_LARGE_SQUARE,
   generator: LinearPlotGenerator,
-  editor: LinearPlotEditor,
+  editor: null,
 }
 
 module.exports = LinearPlot

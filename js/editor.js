@@ -3,6 +3,8 @@ import shallowClone from './utils/shallow_clone'
 import QUESTIONS from './questions'
 import parseQuery from './utils/parse_query'
 import service from './service'
+import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class Editor extends React.Component {
 
@@ -38,6 +40,7 @@ class Editor extends React.Component {
   }
 
   handleLoadConfig(configID){
+    // window.location.replace('/editor/?config=' + configID, false)
     this.loadConfig(configID)
   }
 
@@ -363,6 +366,8 @@ class ListConfigs extends React.Component {
   }
 
   render(){
+
+
     return (
       <div>
         <select onChange={ this.handleSelectChange } defaultValue={ this.state.selectedConfig }>
