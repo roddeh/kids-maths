@@ -10,6 +10,7 @@ import CountingBySquares from './questions/counting_by_squares'
 import FractionAdditionWithShapes from './questions/fraction_addition_with_shapes'
 import FractionsWithShapes from './questions/fractions_with_shapes'
 import FourColourMapTheorem from './questions/four_colour_map_theorem'
+import GraphTrace from './questions/graph_trace'
 import GridPicture from './questions/grid_picture'
 import LinearPlot from './questions/linear_plot'
 import MathsTable from './questions/maths_table'
@@ -53,6 +54,7 @@ module.exports = [
   FourColourMapTheorem,
   FractionAdditionWithShapes,
   FractionsWithShapes,
+  GraphTrace,
   GridPicture,
   LinearPlot,
   MathsTable,
