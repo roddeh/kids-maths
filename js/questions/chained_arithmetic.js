@@ -48,7 +48,7 @@ class ChainedArithmeticGenerator extends React.Component {
     }
 
     return (
-      <div className="simple-addition">
+      <div className="simple-arithmetic">
       {
         doTimes(3, (i) => { 
           return (

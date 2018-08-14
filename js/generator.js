@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from './layout'
 import parseQuery from './utils/parse_query'
+import doTimes from './utils/do_times'
 import service from './service'
 import QUESTIONS from './questions'
 
@@ -16,7 +17,7 @@ class Generator extends React.Component {
 
     service.loadConfig(query.config)
       .then((result) => {
-        this.setState({loading:false, configID:query.config, config:result.config})
+        this.setState({loading:false, configID:query.config, config:result.config, pages:query.pages || 1})
       })
       .catch((error) => {
         console.log('Handle the error', error);
@@ -37,7 +38,15 @@ class Generator extends React.Component {
 
     return (
       <div className='generator'>
-        <Layout questions={ questions }></Layout>
+        {
+          doTimes(this.state.pages, (i) => {
+            return (
+              <div className='maths-page'>
+                <Layout key={ i } questions={ questions }></Layout>
+              </div>
+            )
+          })
+        }
       </div>
     )    
   }

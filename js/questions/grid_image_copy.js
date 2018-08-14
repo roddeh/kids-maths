@@ -21,6 +21,7 @@ class GridImageCopyGenerator extends React.Component {
     }
 
     let ctx = document.getElementById(this.canvasID).getContext('2d');
+    ctx.clearRect(0, 0, SIZE, SIZE)
     let rotation = rand(2);
 
     ctx.beginPath();
