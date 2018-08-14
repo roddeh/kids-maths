@@ -32,6 +32,7 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
+    "gulp-watch": "^5.0.1",
     "npm": "^6.0.0",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
@@ -43,6 +44,9 @@
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "gulp": "^3.9.1",
+    "gulp-debug": "^4.0.0",
+    "gulp-stylus": "^2.7.0",
     "nodemon": "^1.17.3",
     "stylus": "^0.54.5",
     "webpack": "^4.3.0",

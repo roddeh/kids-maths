@@ -3,6 +3,7 @@ import shallowClone from './utils/shallow_clone'
 import QUESTIONS from './questions'
 import parseQuery from './utils/parse_query'
 import service from './service'
+import c from './constants'
 import { Link } from "react-router-dom";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -310,6 +311,16 @@ class EditorSection extends React.Component {
     }
   }
 
+  getLayoutClass(def){
+    switch(def.layoutType){
+      case c.questionShapes.SMALL_SQUARE: return 'small-square-editor'
+      case c.questionShapes.TALL_RECT: return 'tall-rect-editor'
+      case c.questionShapes.WIDE_RECT: return 'wide-rect-editor'
+      case c.questionShapes.LARGE_SQUARE: return 'large-square-editor'
+      case c.questionShapes.DOUBLE_LARGE_SQUARE: return 'double-large-square-editor'
+    }
+  }
+
   render(){
     let def = this.props.definition
     let editorProps = shallowClone(this.state)
@@ -329,9 +340,11 @@ class EditorSection extends React.Component {
           def.editor ? React.createElement(def.editor, editorProps) : <div/>
         }
         <br/>
-        {
-          React.createElement(def.generator, this.state)
-        }
+        <div className={ this.getLayoutClass(def) + ' editor-question' }>
+          {
+            React.createElement(def.generator, this.state)
+          }
+        </div>
         <hr/>
       </div>
     )
