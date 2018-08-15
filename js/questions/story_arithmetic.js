@@ -47,7 +47,7 @@ function prepareDivisionNumbers(){
 function additionAppleStory(leftNum, rightNum){
   return (
     <React.Fragment>
-      { this.props.childsName } has <strong>{ leftNum }</strong> { plural(leftNum, 'apple', 'apples') } but then he buys <strong>{ rightNum }</strong> more { plural(rightNum, 'apple.', 'apples.') } How many apples does { this.props.childsName } have now?
+      { this.props.childsName } has <strong>{ leftNum }</strong> { plural(leftNum, 'apple', 'apples') } but then they buy <strong>{ rightNum }</strong> more { plural(rightNum, 'apple.', 'apples.') } How many apples does { this.props.childsName } have now?
     </React.Fragment>
   )
 }
@@ -63,7 +63,7 @@ function additionGuppyStory(leftNum, rightNum){
 function subtractionAppleStory(leftNum, rightNum){
   return (
     <React.Fragment>
-      { this.props.childsName } has <strong>{ leftNum }</strong> { plural(leftNum, 'apple', 'apples') } but then he eats <strong>{ rightNum }</strong> { plural(rightNum, 'apple.', 'apples.') } How many apples does { this.props.childsName } have left?
+      { this.props.childsName } has <strong>{ leftNum }</strong> { plural(leftNum, 'apple', 'apples') } but then they eat <strong>{ rightNum }</strong> { plural(rightNum, 'apple.', 'apples.') } How many apples does { this.props.childsName } have left?
     </React.Fragment>
   )
 }
