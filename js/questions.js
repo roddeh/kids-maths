@@ -1,5 +1,6 @@
 import AdditionWithIcons from './questions/addition_with_icons'
 import AngleTypes from './questions/angle_types'
+import AnimalLegMath from './questions/animal_leg_math'
 import ArithmeticPyramid from './questions/arithmetic_pyramid'
 import ChainedArithmetic from './questions/chained_arithmetic'
 import CircleGeometry from './questions/circle_geometry'
@@ -47,6 +48,7 @@ module.exports = [
   AdditionWithIcons,
   ArithmeticPyramid,
   AngleTypes,
+  AnimalLegMath,
   ChainedArithmetic,
   CircleGeometry,
   ClockTime,
