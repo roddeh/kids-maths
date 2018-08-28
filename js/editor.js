@@ -29,7 +29,10 @@ class Editor extends React.Component {
 
     service.listConfigs()
       .then((result) => {
-        this.setState({configs:result.configs})
+        result = result.configs.filter((config) => {
+          return ( config.indexOf('goog') === -1 )
+        })
+        this.setState({configs:result})
       })
   }
 
@@ -37,11 +40,11 @@ class Editor extends React.Component {
     service.loadConfig(configID)
       .then((result) => {
         this.setState({config:result.config, configID})
+        this.props.history.push('/editor/?config=' + configID)
       })
   }
 
   handleLoadConfig(configID){
-    // window.location.replace('/editor/?config=' + configID, false)
     this.loadConfig(configID)
   }
 
@@ -156,12 +159,30 @@ class ConfigManager extends React.Component {
     }
   }
 
+  renderCreateConfigPrompt(){
+    console.log('render config prompt');
+    
+    return null
+  }
+
+  renderPrompts(){
+    if(this.props.configs.length === 0){
+      return <CreateConfigPrompt/>
+    }
+    else{
+      if(this.props.configID === undefined){
+        return <LoadConfigPrompt/>
+      }
+    }
+  }
+
   render(){
     return (
       <div className='config-manager'>
         <input type='text' onChange={ this.handleConfigTextChange } value={ this.state.configText }/>
         <br/>
         <button onClick={ this.handleContextCreate }>Create Configuration</button>
+        { this.renderPrompts() }
         <hr/>
         <ListConfigs 
           configs={ this.props.configs } 
@@ -206,6 +227,13 @@ class QuestionEditor extends React.Component {
 
     return (
       <div className='current-questions'>
+        {
+          (() => {
+            if(questions.length === 0){
+              return <AddQuestionPrompt/>
+            }
+          })()
+        }
         {
           questions.map((question, i) => {
             return (
@@ -397,6 +425,60 @@ class ListConfigs extends React.Component {
       </div>
     )
   }
+}
+
+class CreateConfigPrompt extends React.Component {
+
+  render(){
+    return (
+      <div className="editor-prompt create-config-prompt">
+        { String.fromCodePoint(11013) }
+        <p>
+          Get started by creating your first "configuration".  A configuration is simply a set of questions and their individual settings.
+        </p>
+        <p>
+          You can start by naming your configuration after the child for whom you are creating the question set. 
+        </p>
+      </div>
+    )
+  }
+}
+
+class LoadConfigPrompt extends React.Component {
+
+  render(){
+    return (
+      <div className="editor-prompt load-config-prompt">
+        { String.fromCodePoint(11013) }
+        <p>
+          Load an existing configuration by selecting it here.
+        </p>
+      </div>
+    )
+  }
+}
+
+class AddQuestionPrompt extends React.Component {
+
+  render(){
+    return (
+      <div className="editor-prompt add-question-prompt">
+        { String.fromCodePoint(11013) }
+        <p>
+          Add Questions by clicking on the "+" buttons.
+        </p>
+        <p>
+          You can add as many questions as you like and configure each one to meet the needs of your child.
+        </p>
+        <p>
+          When you are ready, click the 'Generate Questions' button to generate 5 pages of maths worksheets based on your configuration.
+        </p>
+        <p>
+          The idea is that you print out these worksheets and help your child work through them.  If they are too easy or too hard you can adjust the questions and their settings to get the level right.
+        </p>
+      </div>
+    )
+  } 
 }
 
 module.exports = Editor

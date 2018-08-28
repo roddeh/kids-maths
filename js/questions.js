@@ -23,6 +23,7 @@ import MultiplicationSquares from './questions/multiplication_squares'
 import MultiplicationWithCubes from './questions/multiplication_with_cubes'
 import MultiplicationWithIcons from './questions/multiplication_with_icons'
 import NumberLine from './questions/number_line'
+import NumberSequence from './questions/number_sequence'
 import OrderOfOperations from './questions/order_of_operations'
 import PatternSequence from './questions/pattern_sequence'
 import ProjectionsToShape from './questions/projections_to_shape'
@@ -68,6 +69,7 @@ module.exports = [
   MultiplicationWithCubes,
   MultiplicationWithIcons,
   NumberLine,
+  NumberSequence,
   OrderOfOperations,
   PatternSequence,
   ProjectionsToShape,
