@@ -21,34 +21,24 @@ const ANIMALS = [
 class AnimalLegMathGenerator extends React.Component {
 
   render(){
-
-    let sentence = 'On the farm there were '
-
     let animals = shuffle(ANIMALS)
     let fragments = []
     doTimes(this.props.typesOfAnimals, (i) => {
-      let count = rand(1, 10)
-
+      let count = rand(1, 12)
       // If it is the first animal force a count greater than 1 to avoid 'was/were' problems
       if(i === 0 && count === 1){
         count++
       }
       fragments.push(count + ' ' + animals[i][count === 1 ? 0 : 1])
     })
-
+    let sentence = 'On the farm there were '
     sentence += fragments.slice(0, fragments.length - 1).join(', ')
     sentence += ' and ' + fragments[fragments.length - 1] + '.'
-
     return (
       <div className='animal-leg-math center'>
-        <p>
-          { sentence }
-        </p>
-        <p>
-          How many legs all together?
-        </p>
+        <p>{ sentence }</p>
+        <p>How many legs all together?</p>
         <p>{ '\xA0' }</p>
-
       </div>
     )
   }
