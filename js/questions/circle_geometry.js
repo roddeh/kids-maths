@@ -63,7 +63,7 @@ class CircleGeometryGenerator extends React.Component {
 
   render(){
     this.canvasID = 'circle-geometry-' + (idCounter++);
-    let message = this.props.segments ? 'Calculate the area and circumference of the shaded segment.' : 'Calculate the area of the circle.'
+    let message = this.props.segments ? 'Calculate the area and circumference of the shaded segment.' : 'Calculate the area and circumference of the circle.'
     return (
       <div className='circle-geometry'>
         <div>{ message }</div>
