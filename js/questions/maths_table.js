@@ -15,7 +15,17 @@ const defaultProps = {
   colMinimum: 1,
   colMaximum: 12,
   operation: ADDITION,
+  missingMode: false
 }
+
+const MISSING_SHAPE = [
+  [1,0,0,0,0,0],
+  [0,1,0,0,1,0],
+  [0,0,1,1,0,1],
+  [0,0,1,0,1,0],
+  [0,1,0,1,0,1],
+  [0,1,1,0,0,0],
+]
 
 class MathsTableGenerator extends React.Component {
 
@@ -33,16 +43,32 @@ class MathsTableGenerator extends React.Component {
 
   render(){
     let xNumbers = this.prepareNumbers(this.props.rowMinimum, this.props.rowMaximum);
-    let firstRow = shuffle(xNumbers).slice(0, NUM_COLS);
+    xNumbers = shuffle(xNumbers)
+    let firstRow = xNumbers.slice(0, NUM_COLS);
     firstRow.unshift(this.props.operation);
+    
     let rows = [firstRow];
 
     let yNumbers = this.prepareNumbers(this.props.colMinimum, this.props.colMaximum);
     yNumbers = shuffle(yNumbers).slice(0, NUM_COLS);
 
     doTimes(NUM_COLS, (i) => {
-      let cells = [yNumbers[i]];
-      doTimes(NUM_COLS, () => cells.push('\xA0'));
+      let y = yNumbers[i]
+      let cells = [y]
+      doTimes(NUM_COLS, (j) => {
+        let x = xNumbers[j]
+        if(this.props.missingMode){
+          if(this.props.operation === ADDITION){
+            cells.push(x + y)  
+          }
+          else{
+            cells.push(x * y)    
+          }
+        }
+        else{
+          cells.push('\xA0')
+        }
+      });
       rows.push(cells);
     })
 
@@ -56,7 +82,15 @@ class MathsTableGenerator extends React.Component {
                   <tr key={ i }>
                     {
                       row.map((cell, j) => {
-                        return <td key={ j }> { cell } </td>
+                        if(this.props.missingMode){
+                          if(MISSING_SHAPE[i][j] === 0){
+                            cell = '\xA0'
+                          }
+                          return <td key={ j }> { cell } </td>  
+                        }
+                        else{
+                          return <td key={ j }> { cell } </td>  
+                        }
                       })
                     }
                   </tr>
@@ -98,6 +132,9 @@ class MathsTableEditor extends QuestionEditor {
           <option value={ ADDITION }>Addition</option>
           <option value={ MULTIPLICATION }>Multiplication</option>
         </select>
+        <br/>
+        <label>Missing Number Mode:</label>
+        <input type='checkbox' name='missingMode' defaultChecked={ this.state.missingMode } onChange={ this.handleCheckboxChange }></input>
       </div>
     )
   }
