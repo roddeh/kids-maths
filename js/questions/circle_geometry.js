@@ -24,7 +24,7 @@ class CircleGeometryGenerator extends React.Component {
     ctx.arc(s2, s2, size / 2, 0, Math.PI * 2);
     ctx.stroke()
 
-    let degrees = rand(2, 12) * 30
+    let degrees = rand(2, 11) * 30
     let radius = rand(1, 20)
 
     if(this.props.segments){
