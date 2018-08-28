@@ -15,7 +15,8 @@ const VARIABLES = ['a', 'b', 'c', 'x', 'y'];
 const defaultProps = {
   minNumber: 1,
   maxNumber: 9,
-  operations: [ADDITION, SUBTRACTION]
+  operations: [ADDITION, SUBTRACTION],
+  includeNegative: false,
 }
 
 class SimpleAlgebraGenerator extends React.Component {
@@ -25,15 +26,31 @@ class SimpleAlgebraGenerator extends React.Component {
     let max = this.props.maxNumber;
 
     function addition(a, b){
+      if(this.props.includeNegative && Math.random() > 0.5){
+        a *= -1
+      }
       return [a, b, a + b];
     }
     function subtraction(a, b){
-      return [a, b, a - b];
+      if(this.props.includeNegative){
+        return [a, b, a - b];
+      }
+      else{
+        let mn = Math.min(a, b)
+        let mx = Math.max(a, b)
+        return [mx, mn, mx - mn]
+      }
     }
     function multiplication(a, b){
+      if(this.props.includeNegative && Math.random() > 0.5){
+        a *= -1
+      }
       return [a, b, a * b]
     }
     function division(a, b){
+      if(this.props.includeNegative && Math.random() > 0.5){
+        a *= -1
+      }
       return [a * b, a, b];
     }
 
@@ -53,7 +70,7 @@ class SimpleAlgebraGenerator extends React.Component {
 
     let operation = rand(ops)
 
-    let [left, right, answer] = operation.method(rand(min, max), rand(min, max));
+    let [left, right, answer] = operation.method.apply(this, [rand(min, max), rand(min, max)]);
     let letter = rand(VARIABLES);
     if(Math.random() > 0.5){
       left = letter;
@@ -92,6 +109,8 @@ class SimpleAlgebraEditor extends QuestionEditor {
         { this.renderMinMaxRange(1, 5, 5, 16) }
         <br/>
         <CheckboxSet value={ this.state.operations } options={ options } onChange={ (val) => this.handleCheckboxSetChange('operations', val) }></CheckboxSet>
+        <label>Include Negative Numbers:</label>
+        <input type='checkbox' name='includeNegative' defaultChecked={ this.state.includeNegative } onChange={ this.handleCheckboxChange }></input>
       </div>
     )
   }
@@ -110,78 +129,3 @@ const SimpleAlgebra = {
 }
 
 module.exports = SimpleAlgebra
-
-
-// 'use strict';
-
-// const c = require('../constants');
-// const doTimes = require('../do_times');
-// const rand = require('roddeh-rand');
-// const prepareConfig = require('../prepare_config');
-
-// let config = {
-//   minNumber: 1,
-//   maxNumber: 9,
-// }
-
-// const ADDITION = '+';
-// const SUBTRACTION = '-';
-// const MULTIPLICATION = '&times;'
-// const DIVISION = '&div;'
-// const VARIABLES = ['a', 'b', 'c', 'x', 'y'];
-
-// function generateQuestion(){
-//   let min = config.minNumber;
-//   let max = config.maxNumber;
-
-//   function addition(a, b){
-//     return [a, b, a + b];
-//   }
-//   function subtraction(a, b){
-//     return [a, b, a - b];
-//   }
-//   function multiplication(a, b){
-//     return [a, b, a * b]
-//   }
-//   function division(a, b){
-//     return [a * b, a, b];
-//   }
-
-//   let operation = rand([
-//     {method:addition, symbol:ADDITION},
-//     {method:subtraction, symbol:SUBTRACTION},
-//     {method:multiplication, symbol:MULTIPLICATION},
-//     {method:division, symbol:DIVISION},
-//   ]);
-
-//   let [left, right, answer] = operation.method(rand(min, max), rand(min, max));
-//   let letter = rand(VARIABLES);
-//   if(Math.random() > 0.5){
-//     left = letter;
-//   }
-//   else{
-//     right = letter;
-//   }
-
-//   let question = left + ' ' + operation.symbol + ' ' + right;
-//   let top = question + ' = ' + answer;
-//   let bottom = `&#8756; ${ letter } = `
-
-//   return `
-//     <div class="simple-algebra">
-//       ${ top }<br/>
-//       ${ bottom }
-//     </div>
-//   `
-// }
-
-// let simpleAlgebra = {
-//   type: c.questionShapes.SMALL_SQUARE,
-//   prepare(cfg){
-//     config = prepareConfig(cfg || {}, config);
-//     return this;
-//   },
-//   generateQuestion,
-// };
-
-// module.exports = simpleAlgebra;
