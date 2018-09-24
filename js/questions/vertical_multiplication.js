@@ -44,7 +44,7 @@ class VerticalMultiplicationGenerator extends React.Component {
     }
 
     return (
-      <div className='vertical-arithmetic'>
+      <div className='vertical-arithmetic center large-text'>
         {pad(2 + numDigits - top.length) + top }
         <br/>
         { String.fromCodePoint(215) + pad(1 + numDigits - bottom.length) + bottom }

@@ -34,6 +34,7 @@ import SimpleArithmetic from './questions/simple_arithmetic'
 import SimpleAlgebra from './questions/simple_algebra'
 import SingleVariableAlgebra from './questions/single_variable_algebra'
 import ShapeProejections from './questions/shape_projections'
+import StackedAddition from './questions/stacked_addition'
 import StoryArithmetic from './questions/story_arithmetic'
 import TimeDistanceSpeed from './questions/time_distance_speed'
 import TraceLetter from './questions/trace_letter'
@@ -81,6 +82,7 @@ module.exports = [
   SimpleAlgebra,
   SingleVariableAlgebra,
   ShapeProejections,
+  StackedAddition,
   StoryArithmetic,
   TimeDistanceSpeed,
   TraceLetter,

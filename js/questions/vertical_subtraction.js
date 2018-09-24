@@ -42,7 +42,7 @@ class VerticalSubtractionGenerator extends React.Component {
     }
 
     return (
-      <div className='vertical-arithmetic'>
+      <div className='vertical-arithmetic center large-text'>
         {pad(2 + numDigits - top.length) + top }
         <br/>
         { '-' + pad(1 + numDigits - bottom.length) + bottom }

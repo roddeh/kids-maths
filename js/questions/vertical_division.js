@@ -32,7 +32,7 @@ class VerticalDivisionGenerator extends React.Component {
     doTimes(this.props.numDigits - 1, () => { divisor = '0' + divisor });
 
     return (
-      <div className="vertical-arithmetic">
+      <div className="vertical-arithmetic center large-text">
         { '\xA0\xA0' + zerosToSpace(top, '0') }
         <br/>
         { String.fromCodePoint(0x00F7) + '\xA0' + zerosToSpace(divisor, '0') }
