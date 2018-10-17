@@ -129,8 +129,8 @@ let tableLayouts = {
   '13':[   // Large Square, Wide Rect, Small Square
     [ls, wr],
     [ss, ss],
-    [wr, ls],
-    [ss, ss],
+    [wr, wr],
+    [ss, ss, ss, ss],
     [ls, wr],
     [ss, ss],
   ],
@@ -312,10 +312,10 @@ class Layout extends React.Component {
           return (
             <tr key={ index }>
               {
-                rowLayout.map((cell, index) => {
+                rowLayout.map((cell, ind) => {
                   let question = rand(questionsInLayout[cell.type])
                   return (
-                    <td colSpan={ cell.colSpan || 1 } rowSpan={ cell.rowSpan || 1} key={ index }>
+                    <td colSpan={ cell.colSpan || 1 } rowSpan={ cell.rowSpan || 1} key={ ind }>
                       {
                         React.createElement(question.definition.generator, question.config)
                       }

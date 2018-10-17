@@ -41,7 +41,7 @@ class Generator extends React.Component {
         {
           doTimes(this.state.pages, (i) => {
             return (
-              <div className='maths-page'>
+              <div className='maths-page' key={ i }>
                 <Layout key={ i } questions={ questions }></Layout>
               </div>
             )

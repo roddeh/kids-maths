@@ -162,7 +162,7 @@ const ShapeProjections = {
   title: 'Shape Projections',
   description: 'Mentally map 3-Dimensinoal shapes onto their respective projections.',
   difficultyLevel:7,
-  layoutType: c.questionShapes.DOUBLE_LARGE_SQUARE,
+  layoutType: c.questionShapes.LARGE_SQUARE,
   generator: ShapeProjectionsGenerator,
   editor: ShapeProjectionsEditor,
 }
