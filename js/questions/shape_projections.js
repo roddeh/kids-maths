@@ -4,14 +4,21 @@ import doTimes from '../utils/do_times'
 import rand from '../utils/rand'
 import QuestionEditor from '../question_editor'
 
-const defaultProps = {}
+const defaultProps = {
+  size: 3
+}
 
 const WIDTH = 350;
 const HEIGHT = 350;
 const SIZE = 3
 let idCounter = 0;
 
-const PROJECTION_SHAPES = [
+const PROJECTION_SHAPES_2 = [
+  [1, 1, 1, 1],
+  [1, 1, 1, 0],
+]
+
+const PROJECTION_SHAPES_3 = [
   [1,1,1,1,0,0,1,1,1],
   [1,1,1,1,0,0,1,0,0],
   [1,1,1,1,0,1,1,1,1],
@@ -30,9 +37,12 @@ class ShapeProjectionsGenerator extends React.Component {
     let h = SIZE
     let l = SIZE
 
-    let leftShape = rand(PROJECTION_SHAPES)
-    let rightShape = rand(PROJECTION_SHAPES)
-    let topShape = rand(PROJECTION_SHAPES)
+    let ps = this.props.size === 2 ? PROJECTION_SHAPES_2 : PROJECTION_SHAPES_3
+    let dim = this.props.size
+
+    let leftShape = rand(ps)
+    let rightShape = rand(ps)
+    let topShape = rand(ps)
     
     let size = 40;    
     let totalHeight = size * h + (w + l) * size * 0.3;
@@ -42,9 +52,9 @@ class ShapeProjectionsGenerator extends React.Component {
       for(let j = 0; j < h; j++){
         for(let k = 0; k < l; k++){
 
-          let ls = leftShape[i * 3 + j]
-          let rs = rightShape[j * 3 + k]
-          let ts = topShape[k * 3 + i]
+          let ls = leftShape[i * dim + j]
+          let rs = rightShape[j * dim + k]
+          let ts = topShape[k * dim + i]
           if(rs && ts & ls){
             let y = startY - j * size;
             y += k * size * 0.3;
@@ -149,7 +159,10 @@ class ShapeProjectionsEditor extends QuestionEditor {
   render(){
     return (
       <div className='editor-form'>
-        
+        <label>Size:</label>
+        <input type='range' name='size' min='2' max='3' step='1' value={ this.state.size } onChange={ this.handleRangeChange }></input>
+        <label>{ this.state.size }</label>
+        <br/>        
       </div>
     )
   }

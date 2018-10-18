@@ -27,6 +27,7 @@ import NumberLine from './questions/number_line'
 import NumberSequence from './questions/number_sequence'
 import OrderOfOperations from './questions/order_of_operations'
 import PatternSequence from './questions/pattern_sequence'
+import PerimeterAndArea from './questions/perimeter_and_area'
 import ProjectionsToShape from './questions/projections_to_shape'
 import Pythagoras from './questions/pythagoras'
 import RotatedShape from './questions/rotated_shape'
@@ -75,6 +76,7 @@ module.exports = [
   NumberSequence,
   OrderOfOperations,
   PatternSequence,
+  PerimeterAndArea,
   ProjectionsToShape,
   Pythagoras,
   RotatedShape,

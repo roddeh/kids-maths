@@ -21,8 +21,6 @@ class TemplateGenerator extends React.Component {
       return prefix + pad(2 - prefix.length + numDigits - num.length) + num
     }
     
-    console.log(this.props.numRows)
-
     return (
       <div className='stacked-addition center large-text'>
         {

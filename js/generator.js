@@ -34,6 +34,8 @@ class Generator extends React.Component {
     let questions = this.state.config.questions.map((q) => {
       let question = QUESTIONS.find((v) => v.name === q.name)
       return ({name:question.name, config:q, definition:question})
+    }).filter((q) => {
+      return q.config.enabled
     })
 
     return (

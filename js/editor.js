@@ -317,9 +317,9 @@ class EditorSection extends React.Component {
   constructor(props){
     super(props)
     this.state = shallowClone(this.props.config)
-    this.handleChange = this.handleChange.bind(this);
-    this.handleEnableToggle = this.handleEnableToggle.bind(this);
-    this.handleRemoveQuestion = this.handleRemoveQuestion.bind(this);
+    this.handleChange = this.handleChange.bind(this)
+    this.handleEnableToggle = this.handleEnableToggle.bind(this)
+    this.handleRemoveQuestion = this.handleRemoveQuestion.bind(this)
   }
 
   handleChange(config){
@@ -329,11 +329,14 @@ class EditorSection extends React.Component {
     }
   }
 
-  handleEnableToggle(){
-    this.setState({enabled:event.currentTarget.checked})
+  handleEnableToggle(event){
+    this.setState({enabled:event.currentTarget.checked}, () => {
+      this.props.onChange(this.state)  
+    })
+    
   }
 
-  handleRemoveQuestion(){
+  handleRemoveQuestion(evemt){
     if(this.props.onRemove){
       this.props.onRemove()
     }
@@ -396,7 +399,6 @@ class ListConfigs extends React.Component {
   }
 
   handleSelectChange(event){
-    console.log(event.currentTarget.value);
     this.setState({selectedConfig:event.currentTarget.value})
   }
 
