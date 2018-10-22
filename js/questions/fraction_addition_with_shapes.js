@@ -20,7 +20,6 @@ class FractionAdditionWithShapesGenerator extends React.Component {
   updateCanvas(){
 
     function makeFrac(){
-      console.log(this.props.number + 1);
       let num = rand(this.props.number);
       let divisor = rand(this.props.minDivisor, this.props.maxDivisor);
       let dividend = rand(1, divisor - 1);

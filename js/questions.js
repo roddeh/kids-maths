@@ -12,6 +12,7 @@ import FindMultiples from './questions/find_multiples'
 import FourColourMapTheorem from './questions/four_colour_map_theorem'
 import FractionAdditionWithShapes from './questions/fraction_addition_with_shapes'
 import FractionsWithShapes from './questions/fractions_with_shapes'
+import FractionMatching from './questions/fraction_matching'
 import GraphTrace from './questions/graph_trace'
 import GridPicture from './questions/grid_picture'
 import LinearPlot from './questions/linear_plot'
@@ -60,6 +61,7 @@ module.exports = [
   FindMultiples,
   FourColourMapTheorem,
   FractionAdditionWithShapes,
+  FractionMatching,
   FractionsWithShapes,
   GraphTrace,
   GridPicture,
