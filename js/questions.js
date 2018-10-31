@@ -9,6 +9,7 @@ import GridImageCopy from './questions/grid_image_copy'
 import ConnectIconsToNumbers from './questions/connect_icons_to_numbers'
 import CountingBySquares from './questions/counting_by_squares'
 import FindMultiples from './questions/find_multiples'
+import FindToAdd from './questions/find_to_add'
 import FourColourMapTheorem from './questions/four_colour_map_theorem'
 import FractionAdditionWithShapes from './questions/fraction_addition_with_shapes'
 import FractionsWithShapes from './questions/fractions_with_shapes'
@@ -63,6 +64,7 @@ module.exports = [
   FractionAdditionWithShapes,
   FractionMatching,
   FractionsWithShapes,
+  FindToAdd,
   GraphTrace,
   GridPicture,
   LinearPlot,

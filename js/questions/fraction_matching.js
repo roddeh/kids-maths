@@ -66,7 +66,6 @@ class TemplateGenerator extends React.Component {
       let h = RADIUS / divisor * 4
 
       for(let i = 0; i < divisor; i++){
-        console.log(i, divisor)
         let xp = i % 2 * RADIUS + x 
         let yp = Math.floor(i / 2) * h + HEIGHT / 5
         ctx.beginPath()

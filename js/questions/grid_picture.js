@@ -81,7 +81,7 @@ OY_YBYYB
 OY_RYYYY
 _O_YOYY_
 _OYOYOY_
-__YOBBO_
+__YOKKO_
 `
 
 const PINEAPPLE = `
@@ -109,7 +109,7 @@ _EBEBEB_
 const HOUSE = `
 ___NN___
 __NEEN__
-_NEEEEB_
+_NEEEEN_
 NBBEEBBN
 _BBEEBB_
 _EERREE_
@@ -161,8 +161,53 @@ OOOOOONN
 O_OO_ONN
 `
 
+const CHARMANDER = `
+_____ON_
+____OOON
+YR__OBNB
+OY__OOON
+_OO_OOY_
+__OOOYYN
+___OYYN_
+___OO_NO
+`
+
+const BULBASAUR = `
+__RYYR__
+_RPPPPR_
+___PP___
+_GGGGY__
+GGGGGGY_
+EGGEGGGY
+GRRGGGGG
+_G_GG_GG
+
+`
+
+const SQUIRTLE = `
+___EE___
+__EEEE__
+__PEPE__
+E_EEEE_E
+_ENYYNE_
+__YYYYN_
+__ENNEN_
+__E___E_
+`
+
+const WATERMELON = `
+______G_
+_____RPG
+____RRPG
+___RKRPG
+__RRRRPG
+_RKRRPG_
+GPPPPG__
+_GGGG___
+`
+
 const LETTER_POSITIONS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', "H"]
-const PICS = [SMILE, LITTLE_MAN, SPINOSAURUS, CRAB, BIRD, PIKACHU, PINEAPPLE, CUPCAKE, HOUSE, MUSHROOM, PEACH, FISH, PAC_GHOST]
+const PICS = [SMILE, LITTLE_MAN, SPINOSAURUS, CRAB, BIRD, PIKACHU, PINEAPPLE, CUPCAKE, HOUSE, MUSHROOM, PEACH, FISH, PAC_GHOST, CHARMANDER, BULBASAUR, SQUIRTLE, WATERMELON]
 
 let colours = {
   'Y':'YELLOW',
@@ -176,6 +221,8 @@ let colours = {
   'E':'SKY BLUE',
   'O':'ORANGE',
 }
+
+
 
 let colourKeys = {}
 
