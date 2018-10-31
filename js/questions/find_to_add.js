@@ -166,7 +166,7 @@ const FindToAdd = {
   title: 'Find to Add',
   description: 'Practise addition by circling the groups of numbers that add to a specified total.',
   difficultyLevel:3,
-  layoutType: c.questionShapes.LARGE_SQUARE,
+  layoutType: c.questionShapes.TALL_RECT,
   generator: FindToAddGenerator,
   editor: FindToAddEditor,
 }

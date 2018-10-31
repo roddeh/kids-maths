@@ -19,7 +19,7 @@ const SHAPES = [
 const GRID_SIZE = 30
 
 let idCounter = 0
-const SIZE = 300
+const SIZE = 250
 
 const DIR = {
   R:[1,0,0,-1.1],
@@ -134,7 +134,7 @@ const Template = {
   title: 'Perimeter and Area',
   description: 'Learn about the calculation of perimeter and are of right angles shapes.',
   difficultyLevel:7,
-  layoutType: c.questionShapes.LARGE_SQUARE,
+  layoutType: c.questionShapes.TALL_RECT,
   generator: TemplateGenerator,
   editor: TemplateEditor,
 }
