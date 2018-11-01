@@ -25,6 +25,7 @@ import MultiplicationSet from './questions/multiplication_set'
 import MultiplicationSquares from './questions/multiplication_squares'
 import MultiplicationWithCubes from './questions/multiplication_with_cubes'
 import MultiplicationWithIcons from './questions/multiplication_with_icons'
+import NumberBreakdown from './questions/number_breakdown'
 import NumberLine from './questions/number_line'
 import NumberSequence from './questions/number_sequence'
 import OrderOfOperations from './questions/order_of_operations'
@@ -76,6 +77,7 @@ module.exports = [
   MultiplicationSquares,
   MultiplicationWithCubes,
   MultiplicationWithIcons,
+  NumberBreakdown,
   NumberLine,
   NumberSequence,
   OrderOfOperations,
