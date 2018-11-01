@@ -96,7 +96,7 @@ const NumberBreakdown = {
   name: 'numberBreakdown',
   title: 'Number Breakdown',
   description: 'Learn about breaking numbers down into units, tens, hundreds etc.',
-  difficultyLevel:4,
+  difficultyLevel:3,
   layoutType: c.questionShapes.SMALL_SQUARE,
   generator: NumberBreakdownGenerator,
   editor: NumberBreakdownEditor,
