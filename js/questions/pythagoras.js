@@ -154,7 +154,7 @@ const Pythagoras = {
   name: 'pythagoras',
   title: 'Pythagoras',
   description: 'Practise Pythagoras theorem by determining the missing value.',
-  difficultyLevel:8,
+  difficultyLevel:9,
   layoutType: c.questionShapes.LARGE_SQUARE,
   generator: PythagorasGenerator,
   editor: PythagorasEditor,

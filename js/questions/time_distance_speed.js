@@ -77,7 +77,7 @@ const TimeDistanceSpeed = {
   name: 'timeDistanceSpeed',
   title: 'Time Distance Speed',
   description: 'Practise arithmetic in the context of time, distance and speed',
-  difficultyLevel:7,
+  difficultyLevel:8,
   layoutType: c.questionShapes.WIDE_RECT,
   generator: TimeDistanceSpeedGenerator,
   editor: TimeDistanceSpeedEditor,
