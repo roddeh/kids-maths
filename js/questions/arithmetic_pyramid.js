@@ -3,10 +3,15 @@ import c from '../constants'
 import doTimes from '../utils/do_times'
 import rand from '../utils/rand'
 import QuestionEditor from '../question_editor'
+import CheckboxSet from '../checkbox_set'
+
+const ADDITION = '+'
+const SUBTRACTION = '-'
 
 const defaultProps = {
   minNumber: 1,
   maxNumber: 12,
+  operations: [ADDITION]
 }
 
 const BASE = 5;
@@ -17,6 +22,10 @@ class ArithmeticPyramidGenerator extends React.Component {
 
     let min = this.props.minNumber
     let max = this.props.maxNumber
+    let ops = this.props.operations
+    if(ops.length === 0){
+      ops = [ADDITION]
+    }
 
     function table(n, blank = true){
       return (
@@ -41,7 +50,7 @@ class ArithmeticPyramidGenerator extends React.Component {
     }
 
     function op(){
-      return rand(['+', '-']);
+      return rand(ops)
     }
 
     function num(blank){
@@ -65,11 +74,18 @@ class ArithmeticPyramidGenerator extends React.Component {
 ArithmeticPyramidGenerator.defaultProps = defaultProps
 
 class ArithmeticPyramidEditor extends QuestionEditor {
-
   render(){
+    let options = [
+      {label:'Addition', value:ADDITION},
+      {label:'Subtraction', value:SUBTRACTION},
+    ]
     return (
       <div className='editor-form'>
         { this.renderMinMaxRange(1, 5, 5, 16) }
+        <br/>
+        <label>Included Operations:</label>
+        <br/>
+        <CheckboxSet value={ this.state.operations } options={ options } onChange={ (val) => this.handleCheckboxSetChange('operations', val) }></CheckboxSet>
       </div>
     )
   }

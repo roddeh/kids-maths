@@ -13,32 +13,6 @@ class NumberBreakdownGenerator extends React.Component {
   render(){
     let num = String(rand(1000, 9999)).split('')
 
-
-    // function makeRow(num, multiple){
-    //   return (
-    //     <tr>
-    //       <td>{ num } &times; multiple =</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
-    //     </tr>
-    //   )
-    // }
-
-    // function makeRows(){
-      
-    //   makeRow(num[2], 10)
-    //   makeRow(num[1], 100)
-    //   return (
-    //     <React.Fragment>
-    //       { 
-    //         num.for
-    //           makeRow(num[3], 1)
-    //           makeRow(num[0], 1000)   
-    //         })()
-            
-    //       }
-    //     </React.Fragment>
-    //   )
-    // }d
-
     function makeRow(n, i){
       return (
         <tr key={ i }>

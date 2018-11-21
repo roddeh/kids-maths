@@ -123,7 +123,7 @@ const EdgesVerticesFaces = {
   name: 'edgesVerticesFaces',
   title: 'Edges Vertices Faces',
   description: 'Learn about the properties of 3D shapes.',
-  difficultyLevel:0,
+  difficultyLevel:4,
   layoutType: c.questionShapes.TALL_RECT,
   generator: EdgesVerticesFacesGenerator,
   editor: EdgesVerticesFacesEditor,

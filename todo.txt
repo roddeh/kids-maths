@@ -4,6 +4,10 @@
   - A can of lemonade is 15 cm tall and has a diameter of 8cm, how many mL of lemonade can it hold?
   - One big bucket is blah... Then there are three small buckets taht are blah.  Which holds the most liquid, the big bucket or the three little ones
 
+- Deductive Algebra 
+    3 circles = 2 squares, 
+    2 circles = 1 triangle
+    3 triangles = ? squares
 
 - Find Multiples
 - Fraction addition where the denominators don't match
