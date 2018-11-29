@@ -1,13 +1,66 @@
+----
+Algebra Puzzle Sentences
+
+EASY - "Bill has 3 apples fewer than Jane who has 7 apples."
+          B = 4, J = 7
+
+MEDIUM - "Bill has 3 apples fewer than Jane, but 2 more than Kate.  Jane has 7 apples.  How many does everybody else have"
+          J = 7, B = 4, K = 2
+       - "Bill has twice as many apples as Jane.  Jane has 2 apples fewer than Kate, who has 5 apples."
+          B = 6, K = 5, J = 3
+
+HARD  - "Kate has 3 more apples than Jane.  Bill has as many apples as everybody else combined. Bill has 7 apples."
+          J = 2, K = 3, B = 7
+
+      - "Bill has twice as many apples as Kate and Jane Combined. Kate has half as many apples as Jane. There are 18 apples all together."
+          B = 12, J = 4, K = 2
+
+----
+- Add simple mode to grid picture
+  - 4 + 2 = K
+  - Always keep the variable on the RHS
+----
+
+
+
+
+
+- Balanced equations
+
+? + 4 = 6 + 3
+
+Replace the ? to balance.  The question mark should actually be an empty square.
+
+
+- Multistep Algebra
+
+K + 5 = 9
+K - Y = 1
+Therefore K = 
+Therefore Y = 
+
+-----
+
+- Add words to the fraction colouring
+  - Colour in one quarter of the picture.
+  - Which picture represents one half
+
+----
+
 - Simplify Fractions - 4/6 => 2/3
+  - Maybe with pictures to help at first
+----
 
 - Volume sentence questions
   - A can of lemonade is 15 cm tall and has a diameter of 8cm, how many mL of lemonade can it hold?
   - One big bucket is blah... Then there are three small buckets taht are blah.  Which holds the most liquid, the big bucket or the three little ones
 
+----
 - Deductive Algebra 
     3 circles = 2 squares, 
     2 circles = 1 triangle
     3 triangles = ? squares
+----
 
 - Find Multiples
 - Fraction addition where the denominators don't match

@@ -11,7 +11,8 @@ const SUBTRACTION = '-'
 const defaultProps = {
   minNumber: 1,
   maxNumber: 12,
-  operations: [ADDITION]
+  operations: [ADDITION],
+  inverseMode: false,
 }
 
 const BASE = 5;
@@ -85,7 +86,9 @@ class ArithmeticPyramidEditor extends QuestionEditor {
         <br/>
         <label>Included Operations:</label>
         <br/>
-        <CheckboxSet value={ this.state.operations } options={ options } onChange={ (val) => this.handleCheckboxSetChange('operations', val) }></CheckboxSet>
+        <CheckboxSet value={ this.state.operations } options={ options } onChange={ (val) => this.handleCheckboxSetChange('operations', val) }></CheckboxSet>        
+        <label>Inverse Mode:</label>
+        <input type='checkbox' name='inverseMode' defaultChecked={ this.state.inverseMode } onChange={ this.handleCheckboxChange }></input>
       </div>
     )
   }

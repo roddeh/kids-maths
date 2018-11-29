@@ -207,8 +207,8 @@ _GGGG___
 `
 
 const LETTER_POSITIONS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', "H"]
-// const PICS = [SMILE, LITTLE_MAN, SPINOSAURUS, CRAB, BIRD, PIKACHU, PINEAPPLE, CUPCAKE, HOUSE, MUSHROOM, PEACH, FISH, PAC_GHOST, CHARMANDER, BULBASAUR, SQUIRTLE, WATERMELON]
-const PICS = [CHARMANDER, BULBASAUR, SQUIRTLE, WATERMELON]
+const PICS = [SMILE, LITTLE_MAN, SPINOSAURUS, CRAB, BIRD, PIKACHU, PINEAPPLE, CUPCAKE, HOUSE, MUSHROOM, PEACH, FISH, PAC_GHOST, CHARMANDER, BULBASAUR, SQUIRTLE, WATERMELON]
+// const PICS = [CHARMANDER, BULBASAUR, SQUIRTLE, WATERMELON]
 
 let colours = {
   'Y':'YELLOW',
@@ -223,9 +223,11 @@ let colours = {
   'O':'ORANGE',
 }
 
-
-
 let colourKeys = {}
+for(let key in colours){
+  colourKeys[colours[key]] = key;
+}
+
 
 function objToArr(o){
   let arr = [];
@@ -261,10 +263,76 @@ function getUniqueLetters(colours){
   return objToArr(letters);
 }
 
+function addition(pair){
+  let num = rand(0, 10);
+  if(Math.random() > 0.5){
+    return [pair.letter, num, pair.number + num];
+  }
+  else{
+    return [num, pair.letter, num + pair.number];
+  }
+}
+
+function subtraction(pair){
+  if(Math.random() > 0.5){
+    let right = pair.number - rand(0, pair.number);
+    return [pair.letter, right, pair.number - right];
+  }
+  else{
+    let left = pair.number + rand(0, 10);
+    return [left, pair.letter, left - pair.number];
+  }
+}
+
+function multiplication(pair){
+  let max = pair.number > 10 ? 3 : 9;
+  let multiplier = rand(2, max)
+  if(Math.random() > 0.5){
+    return [pair.letter, multiplier, pair.number * multiplier];
+  }
+  else{
+    return [multiplier, pair.letter, multiplier * pair.number];
+  } 
+}
+
+function division(pair){
+  let max = pair.number > 10 ? 2 : 9;
+  let multiplier = rand(2, max)
+  if(Math.random() > 0.5){
+    return [pair.number * multiplier, pair.letter, multiplier];
+  }
+  else{
+    return [pair.number * multiplier, multiplier, pair.letter];
+  }
+}
+
+let operationMethodMap = {}
+operationMethodMap[ADDITION] = addition
+operationMethodMap[SUBTRACTION] = subtraction
+operationMethodMap[MULTIPLICATION] = multiplication
+operationMethodMap[DIVISION] = division
+
 class GridPictureGenerator extends React.Component {
 
   render(){
-    this.createColourKeys();
+    let { picture, colours, pairs, variables, variableValues } = this.collectConfiguration()
+
+    return (
+      <div className='grid-picture'>
+        {
+          this.createEquations(pairs, variables)
+        }
+        {
+          this.createColourKeySet(colours, variableValues, picture)
+        }
+        {
+          this.drawGrid()
+        }
+      </div>
+    )
+  }
+
+  collectConfiguration(){
     let picture = getPicture();
     let colours = getColours(picture);
     let pairs = shuffle(getUniqueLetters(colours)
@@ -277,79 +345,22 @@ class GridPictureGenerator extends React.Component {
     pairs.forEach((l) => {
       variables[l.number] = l.letter;
       variableValues[l.letter] = l.number;
-    });
+    })
+    return { picture, colours, pairs, variables, variableValues }
+  }
 
-
-
+  createEquations(pairs, variables){
     return (
-      <div className='grid-picture'>
-        <div className='equation-set'>
-          {
-            pairs.map((pair, ind) => { return this.createEquation(pair, variables, ind) } )
-          }
-        </div>
-        <div className='colour-key-set'>
-          {
-            colours.map((colour, ind) => { return this.createColourKey(colour, variableValues, picture, ind)})
-          }
-        </div>
-          {
-            this.drawGrid()
-          }
+      <div className='equation-set'>
+        {
+          pairs.map((pair, ind) => { return this.createEquation(pair, variables, ind) } )
+        }
       </div>
     )
+
   }
 
   createEquation(pair, variables, ind){
-
-    function addition(pair){
-      let num = rand(0, 10);
-      if(Math.random() > 0.5){
-        return [pair.letter, num, pair.number + num];
-      }
-      else{
-        return [num, pair.letter, num + pair.number];
-      }
-    }
-
-    function subtraction(pair){
-      if(Math.random() > 0.5){
-        let right = pair.number - rand(0, pair.number);
-        return [pair.letter, right, pair.number - right];
-      }
-      else{
-        let left = pair.number + rand(0, 10);
-        return [left, pair.letter, left - pair.number];
-      }
-    }
-
-    function multiplication(pair){
-      let max = pair.number > 10 ? 3 : 9;
-      let multiplier = rand(2, max)
-      if(Math.random() > 0.5){
-        return [pair.letter, multiplier, pair.number * multiplier];
-      }
-      else{
-        return [multiplier, pair.letter, multiplier * pair.number];
-      } 
-    }
-
-    function division(a, b){
-      let max = pair.number > 10 ? 2 : 9;
-      let multiplier = rand(2, max)
-      if(Math.random() > 0.5){
-        return [pair.number * multiplier, pair.letter, multiplier];
-      }
-      else{
-        return [pair.number * multiplier, multiplier, pair.letter];
-      }
-    }
-
-    let operationMethodMap = {}
-    operationMethodMap[ADDITION] = addition
-    operationMethodMap[SUBTRACTION] = subtraction
-    operationMethodMap[MULTIPLICATION] = multiplication
-    operationMethodMap[DIVISION] = division
 
     let ops = this.props.operations.map((op) => {
       return {symbol:op, method:operationMethodMap[op]}
@@ -405,12 +416,15 @@ class GridPictureGenerator extends React.Component {
     )
   }
 
-  createColourKeys(){
-    for(let key in colours){
-      colourKeys[colours[key]] = key;
-    }
+  createColourKeySet(colours, variableValues, picture){
+    return (
+      <div className='colour-key-set'>
+        {
+          colours.map((colour, ind) => { return this.createColourKey(colour, variableValues, picture, ind)})
+        }
+      </div>
+    )
   }
-
 
   createColourKey(colour, variableValues, picture, ind){
     function getKeys(){
@@ -488,11 +502,14 @@ GridPictureEditor.defaultProps = defaultProps
 const GridPicture = {
   name: 'gridPicture',
   title: 'Grid Picture',
-  description: 'Learn basic algebra and problem solving to discover the mystery picture.  Kids need to solve the algebraic questions to discover the value of the letters.  Then use the letters to determine the colours.  Finally, colour in the grid based on the coordinates associated with each colour.',
+  description: 'Learn basic algebra and problem solving to discover the mystery picture.  Kids need to solve the algebraic questions to discover the value of the letters.  Then use the letters to determine the colours.  Finally, colour in the grid based on the coordinates associated with each colour to reveal the hidden picture.',
   difficultyLevel:5,
   layoutType: c.questionShapes.DOUBLE_LARGE_SQUARE,
   generator: GridPictureGenerator,
   editor: GridPictureEditor,
+  utils:{
+
+  }
 }
 
 module.exports = GridPicture

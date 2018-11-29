@@ -17,6 +17,7 @@ import FractionsWithShapes from './questions/fractions_with_shapes'
 import FractionMatching from './questions/fraction_matching'
 import GraphTrace from './questions/graph_trace'
 import GridPicture from './questions/grid_picture'
+import GridPictureTwo from './questions/grid_picture_two'
 import LinearPlot from './questions/linear_plot'
 import MathsTable from './questions/maths_table'
 import MissingNumbers from './questions/missing_numbers'
@@ -72,6 +73,7 @@ module.exports = [
   FindToAdd,
   GraphTrace,
   GridPicture,
+  GridPictureTwo,
   LinearPlot,
   MathsTable,
   MissingNumbers,
