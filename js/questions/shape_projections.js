@@ -133,11 +133,11 @@ class ShapeProjectionsGenerator extends React.Component {
         <table>
           <tbody>
             {
-              doTimes(SIZE, (i) => {
+              doTimes(this.props.size, (i) => {
                 return (
                   <tr key={ i }>
                     {
-                      doTimes(SIZE, (j) => {
+                      doTimes(this.props.size, (j) => {
                         return <td key={ j }></td>
                       })
                     }
