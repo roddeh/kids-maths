@@ -1,4 +1,5 @@
 import AdditionWithIcons from './questions/addition_with_icons'
+import AlgebraSentence from './questions/algebra_sentence'
 import AngleTypes from './questions/angle_types'
 import AnimalLegMath from './questions/animal_leg_math'
 import ArithmeticPyramid from './questions/arithmetic_pyramid'
@@ -17,6 +18,7 @@ import FractionsWithShapes from './questions/fractions_with_shapes'
 import FractionMatching from './questions/fraction_matching'
 import GraphTrace from './questions/graph_trace'
 import GridPicture from './questions/grid_picture'
+import GridPictureIcons from './questions/grid_picture_icons'
 import GridPictureTwo from './questions/grid_picture_two'
 import LinearPlot from './questions/linear_plot'
 import MathsTable from './questions/maths_table'
@@ -56,6 +58,7 @@ import VerticalSubtraction from './questions/vertical_subtraction'
 module.exports = [
   AdditionWithIcons,
   ArithmeticPyramid,
+  AlgebraSentence,
   AngleTypes,
   AnimalLegMath,
   ChainedArithmetic,
@@ -73,6 +76,7 @@ module.exports = [
   FindToAdd,
   GraphTrace,
   GridPicture,
+  GridPictureIcons,
   GridPictureTwo,
   LinearPlot,
   MathsTable,

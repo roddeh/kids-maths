@@ -35,7 +35,7 @@ class AnimalLegMathGenerator extends React.Component {
     sentence += fragments.slice(0, fragments.length - 1).join(', ')
     sentence += ' and ' + fragments[fragments.length - 1] + '.'
     return (
-      <div className='animal-leg-math center'>
+      <div className='animal-leg-math text-question'>
         <p>{ sentence }</p>
         <p>How many legs all together?</p>
         <p>{ '\xA0' }</p>
@@ -50,7 +50,7 @@ class AnimalLegMathEditor extends QuestionEditor {
 
   render(){
     return (
-      <div className='editor-formcenter'>
+      <div className='editor-form'>
         <label>Types of Animals:</label>
         <input type='range' name='typesOfAnimals' min='1' max='4' step='1' value={ this.state.typesOfAnimals } onChange={ this.handleRangeChange }></input>
         <label>{ this.state.typesOfAnimals }</label>

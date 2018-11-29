@@ -194,8 +194,8 @@ let tableLayouts = {
     [ds],
     [],
     [wr, ss, ss],
-    [ds],
-    [],
+    [ss,ss, wr],
+    [wr, ss, ss],
     [ss,ss, wr],
   ],
   '22':[  // Double large square, wide rect, tall rect
@@ -251,8 +251,8 @@ let tableLayouts = {
     [],
     [wr, ls],
     [wr],
-    [ds],
-    [],
+    [wr, ls],
+    [wr],
   ],
   '29':[  // Double large square, wide rect, large square, small square
     [ds],
