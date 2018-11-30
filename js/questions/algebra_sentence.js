@@ -91,7 +91,7 @@ class TemplateGenerator extends React.Component {
       let num1 = rand(1, 4)
       let num2 = num1 * 2
       let mult = rand(2, 3)
-      let num3 = num2 * mult
+      let num3 = (num2 + num1) * mult
       let sum = num1 + num2 + num3
       let mText = ['twice', 'three times'][mult - 2]
 

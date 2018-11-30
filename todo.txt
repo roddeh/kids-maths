@@ -1,27 +1,8 @@
 ----
-Algebra Puzzle Sentences
-
-EASY - "Bill has 3 apples fewer than Jane who has 7 apples."
-          B = 4, J = 7
-
-MEDIUM - "Bill has 3 apples fewer than Jane, but 2 more than Kate.  Jane has 7 apples.  How many does everybody else have"
-          J = 7, B = 4, K = 2
-       - "Bill has twice as many apples as Jane.  Jane has 2 apples fewer than Kate, who has 5 apples."
-          B = 6, K = 5, J = 3
-
-HARD  - "Kate has 3 more apples than Jane.  Bill has as many apples as everybody else combined. Bill has 7 apples."
-          J = 2, K = 3, B = 7
-
-      - "Bill has twice as many apples as Kate and Jane Combined. Kate has half as many apples as Jane. There are 18 apples all together."
-          B = 12, J = 4, K = 2
-
-----
 - Add simple mode to grid picture
   - 4 + 2 = K
   - Always keep the variable on the RHS
 ----
-
-
 
 
 
