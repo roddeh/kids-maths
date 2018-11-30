@@ -31,7 +31,7 @@ class TemplateGenerator extends React.Component {
     
     return (
       <React.Fragment>
-        { name1 } has <strong>{ leftNum }</strong> { apples(leftNum) } <strong>{ comparator}</strong> than { name2 }.  { name2 } has <strong>{ rightNum }</strong> { apples(rightNum) }, how many does { name1 } have?
+        { name1 } has <strong>{ leftNum }</strong> { apples(leftNum) } <strong>{ comparator}</strong> than { name2 }.  { name2 } has <strong>{ rightNum }</strong> { apples(rightNum) }, how many apples does { name1 } have?
       </React.Fragment>
     )
   }
@@ -49,7 +49,7 @@ class TemplateGenerator extends React.Component {
       let d2 = num2 - num1
       return (
         <React.Fragment>
-          { name2 } has { d1 } { apples(d1) } fewer than { name3 }, but { d2 } more than { name1 }.  { name3 } has { num3 } apples. How many apples does everybody else have?
+          { name2 } has <strong>{ d1 }</strong> { apples(d1) } <strong>fewer</strong> than { name3 }, but <strong>{ d2 } more</strong> than { name1 }.  { name3 } has <strong>{ num3 }</strong> apples. How many apples does each person have?
         </React.Fragment>
       )
     }
@@ -61,7 +61,7 @@ class TemplateGenerator extends React.Component {
       let mult = rand(['twice', 'three times', 'four times'])
       return (
         <React.Fragment>
-          { name1 } has { mult } as many apples as { name2 }.  { name2 } has { d1 } { apples(d1) } fewer than { name3 }, who has { num2 } apples. How many apples does everybody else have?
+          { name1 } has <strong>{ mult }</strong> as many apples as { name2 }.  { name2 } has <strong>{ d1 }</strong> { apples(d1) } <strong>fewer</strong> than { name3 }, who has <strong>{ num2 }</strong> apples. How many apples does each person have?
         </React.Fragment>
       )
     }
@@ -69,7 +69,40 @@ class TemplateGenerator extends React.Component {
   }
 
   hard(){
-    return 'hard'
+    let name1 = this.props.name1
+    let name2 = this.props.name2
+    let name3 = this.props.name3
+
+    function hard1(){
+      let num1 = rand(1, 10)
+      let num2 = num1 + rand(1, 10)
+
+      let d = num2 - num1
+      let s = num2 + num1
+
+      return (
+        <React.Fragment>
+          { name1 } has <strong>{ d } more</strong> { apples(d) } than { name2 }. { name3 } has as many apples as everybody else <strong>combined</strong>. { name3 } has <strong>{ s }</strong> apples.  How many apples does each person have?
+        </React.Fragment>
+      )
+    }
+
+    function hard2(){
+      let num1 = rand(1, 4)
+      let num2 = num1 * 2
+      let mult = rand(2, 3)
+      let num3 = num2 * mult
+      let sum = num1 + num2 + num3
+      let mText = ['twice', 'three times'][mult - 2]
+
+      return (
+        <React.Fragment>
+          { name1 } has <strong>{ mText }</strong> as many apples as { name2 } and { name3 } <strong>combined</strong>. { name2 } has <strong>half</strong> as many apples as { name3 }. There are <strong>{ sum }</strong> apples all together.  How many apples does each person have?
+        </React.Fragment>
+      )
+      
+    }
+    return rand([hard1, hard2])()
   }
 
   render(){
