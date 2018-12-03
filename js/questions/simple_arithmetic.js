@@ -19,34 +19,11 @@ const defaultProps = {
 class SimpleArithmeticGenerator extends React.Component {
 
   render(){
-    let min = this.props.minNumber
-    let max = this.props.maxNumber
-
-    function addition(){
-      return rand(min, max) + ' + ' + rand(min, max) + ' = '
-    }
-
-    function subtraction(){
-      let leftNum = rand(min, max)
-      let rightNum = rand(min, leftNum)
-      return leftNum + ' - ' + rightNum + ' = '
-    }
-
-    function multiplication(){
-      return rand(min, max) + ' ' + MULTIPLICATION + ' ' + rand(min, max) + ' = ' 
-    }
-
-    function division(){
-      let right = rand(min, max)
-      let answer = rand(min, max)
-      return (right * answer) + ' ' + DIVISION + ' ' + right + ' = ' 
-    }
-
     let methods = {}
-    methods[ADDITION] = addition
-    methods[SUBTRACTION] = subtraction
-    methods[MULTIPLICATION] = multiplication
-    methods[DIVISION] = division
+    methods[ADDITION] = this.addition
+    methods[SUBTRACTION] = this.subtraction
+    methods[MULTIPLICATION] = this.multiplication
+    methods[DIVISION] = this.division
 
     let ops = this.props.operations
     if(!ops || ops.length === 0){
@@ -63,7 +40,7 @@ class SimpleArithmeticGenerator extends React.Component {
           doTimes(3, (i) => { 
             return (
               <React.Fragment key={ i }>
-                { rand(ops)() }
+                { this.createEquation(ops) }
                 <br/>
               </React.Fragment>
             )
@@ -71,6 +48,31 @@ class SimpleArithmeticGenerator extends React.Component {
         }
       </div>
     )
+  }
+
+  createEquation(ops){
+    let frags = rand(ops)(this.props.minNumber, this.props.maxNumber)
+    return frags.left + ' ' + frags.operation + ' ' + frags.right + ' = '
+  }
+
+  addition(min, max){
+    return {left: rand(min, max), right: rand(min, max), operation: '+'}
+  }
+
+  subtraction(min, max){
+    let left = rand(min, max)
+    let right = rand(min, left)
+    return {left, right, operation: '-'}
+  }
+
+  multiplication(min, max){
+    return {left: rand(min, max), right: rand(min, max), operation: MULTIPLICATION}
+  }
+
+  division(min, max){
+    let right = rand(min, max)
+    let answer = rand(min, max)
+    return {left: right * answer, right, operation: DIVISION}
   }
 }
 
@@ -98,10 +100,10 @@ class SimpleArithmeticEditor extends QuestionEditor {
 SimpleArithmeticEditor.defaultProps = defaultProps
 
 const SimpleArithmetic = {
-  name: 'simpleArithmetic',
+  name: 'SimpleArithmetic',
   title: 'Simple Arithmetic',
-  description: 'Practise arithmetic',
-  difficultyLevel:2,
+  description: 'Practise arithmetic.',
+  difficultyLevel: 4,
   layoutType: c.questionShapes.WIDE_RECT,
   generator: SimpleArithmeticGenerator,
   editor: SimpleArithmeticEditor,

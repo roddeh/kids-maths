@@ -20,6 +20,7 @@ import GraphTrace from './questions/graph_trace'
 import GridPicture from './questions/grid_picture'
 import GridPictureIcons from './questions/grid_picture_icons'
 import GridPictureTwo from './questions/grid_picture_two'
+import LargeNumberArithmetic from './questions/large_number_arithmetic'
 import LinearPlot from './questions/linear_plot'
 import MathsTable from './questions/maths_table'
 import MissingNumbers from './questions/missing_numbers'
@@ -64,7 +65,6 @@ module.exports = [
   ChainedArithmetic,
   CircleGeometry,
   ClockTime,
-  GridImageCopy,
   ConnectIconsToNumbers,
   CountingBySquares,
   EdgesVerticesFaces,
@@ -75,9 +75,11 @@ module.exports = [
   FractionsWithShapes,
   FindToAdd,
   GraphTrace,
+  GridImageCopy,
   GridPicture,
   GridPictureIcons,
   GridPictureTwo,
+  LargeNumberArithmetic,
   LinearPlot,
   MathsTable,
   MissingNumbers,
