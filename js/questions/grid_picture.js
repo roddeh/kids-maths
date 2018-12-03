@@ -12,7 +12,8 @@ const MULTIPLICATION = String.fromCodePoint(215)
 const DIVISION = String.fromCodePoint(0x00F7)
 
 const defaultProps = {
-  operations: [ADDITION, SUBTRACTION, MULTIPLICATION, DIVISION]
+  operations: [ADDITION, SUBTRACTION, MULTIPLICATION, DIVISION],
+  simpleMode: false
 }
 
 const COLS = 8;
@@ -263,7 +264,13 @@ function getUniqueLetters(colours){
   return objToArr(letters);
 }
 
-function addition(pair){
+function addition(pair, simpleMode){
+  if(simpleMode || Math.random() < 0.3){
+    let num1 = rand(0, pair.number)
+    let num2 = pair.number - num1
+    return [num1, num2, pair.letter]
+  }
+
   let num = rand(0, 10);
   if(Math.random() > 0.5){
     return [pair.letter, num, pair.number + num];
@@ -273,7 +280,13 @@ function addition(pair){
   }
 }
 
-function subtraction(pair){
+function subtraction(pair, simpleMode){
+  if(simpleMode || Math.random() < 0.3){
+    let num1 = pair.number + rand(0, 10)
+    let num2 = num1 - pair.number
+    return [num1, num2, pair.letter]
+  }
+
   if(Math.random() > 0.5){
     let right = pair.number - rand(0, pair.number);
     return [pair.letter, right, pair.number - right];
@@ -284,7 +297,29 @@ function subtraction(pair){
   }
 }
 
-function multiplication(pair){
+function multiplication(pair, simpleMode){
+  if(simpleMode || Math.random() < 0.3){
+    let divisor = 1
+    while(true){
+      if(pair.number % divisor === 0){
+        divisor++
+      }
+      else{
+        divisor--
+        break
+      }
+    }
+    let num1 = divisor
+    let num2 = pair.number / divisor
+    if(Math.random() > 0.5){
+      return [num2, num1, pair.letter]
+    }
+    else{
+      return [num1, num2, pair.letter]
+    }
+  }
+
+
   let max = pair.number > 10 ? 3 : 9;
   let multiplier = rand(2, max)
   if(Math.random() > 0.5){
@@ -295,7 +330,13 @@ function multiplication(pair){
   } 
 }
 
-function division(pair){
+function division(pair, simpleMode){
+  if(simpleMode || Math.random() < 0.3){
+    let num2 = rand(1, 10)
+    let num1 = num2 * pair.number
+    return [num1, num2, pair.letter]  
+  }
+
   let max = pair.number > 10 ? 2 : 9;
   let multiplier = rand(2, max)
   if(Math.random() > 0.5){
@@ -365,13 +406,17 @@ class GridPictureGenerator extends React.Component {
     let ops = this.props.operations.map((op) => {
       return {symbol:op, method:operationMethodMap[op]}
     })
+    if(ops.length === 0){
+      ops = [{symbol: ADDITION, method:operationMethodMap[ADDITION]}]
+    }
+
     let operation = rand(ops)
 
     let left;
     let right;
     let answer;
 
-    [left, right, answer] = operation.method(pair);
+    [left, right, answer] = operation.method(pair, this.props.simpleMode);
     let question = left + ' ' + operation.symbol + ' ' + right;    
     let top = question + ' = ' + answer;
     let bottom = `\xA0\xA0${ String.fromCodePoint(0x2234)} ${pair.letter } = `
@@ -492,6 +537,9 @@ class GridPictureEditor extends QuestionEditor {
         <label>Included Operations:</label>
         <br/>
         <CheckboxSet value={ this.state.operations } options={ options } onChange={ (val) => this.handleCheckboxSetChange('operations', val) }></CheckboxSet>
+        <br/>
+        <label>Simple Mode:</label>
+        <input type='checkbox' name='simpleMode' defaultChecked={ this.state.simpleMode } onChange={ this.handleCheckboxChange }></input>
       </div>
     )
   }
