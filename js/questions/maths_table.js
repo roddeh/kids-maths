@@ -5,8 +5,6 @@ import shuffle from '../utils/shuffle'
 import rand from '../utils/rand'
 import QuestionEditor from '../question_editor'
 
-const ADDITION = '+'
-const MULTIPLICATION = String.fromCodePoint(215)
 const NUM_COLS = 5
 
 const defaultProps = {
@@ -14,7 +12,7 @@ const defaultProps = {
   rowMaximum: 12,
   colMinimum: 1,
   colMaximum: 12,
-  operation: ADDITION,
+  operation: c.operations.ADDITION,
   missingMode: false
 }
 
@@ -58,7 +56,7 @@ class MathsTableGenerator extends React.Component {
       doTimes(NUM_COLS, (j) => {
         let x = xNumbers[j]
         if(this.props.missingMode){
-          if(this.props.operation === ADDITION){
+          if(this.props.operation === c.operations.ADDITION){
             cells.push(x + y)  
           }
           else{
@@ -129,8 +127,8 @@ class MathsTableEditor extends QuestionEditor {
         <br/>
         <label>Operation:</label>
         <select name='operation' value={ this.state.operation } onChange={ this.handleSelectChange }>
-          <option value={ ADDITION }>Addition</option>
-          <option value={ MULTIPLICATION }>Multiplication</option>
+          <option value={ c.operations.ADDITION }>Addition</option>
+          <option value={ c.operations.MULTIPLICATION }>Multiplication</option>
         </select>
         <br/>
         <label>Missing Number Mode:</label>

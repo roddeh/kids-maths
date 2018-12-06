@@ -5,17 +5,12 @@ import doTimes from '../utils/do_times'
 import QuestionEditor from '../question_editor'
 import CheckboxSet from '../checkbox_set'
 
-const ADDITION = '+';
-const SUBTRACTION = '-';
-const MULTIPLICATION = String.fromCodePoint(215)
-const DIVISION = String.fromCodePoint(0x00F7)
-
 const VARIABLES = ['a', 'b', 'c', 'x', 'y'];
 
 const defaultProps = {
   minNumber: 1,
   maxNumber: 9,
-  operations: [ADDITION, SUBTRACTION],
+  operations: [c.operations.ADDITION, c.operations.SUBTRACTION],
   includeNegative: false,
 }
 
@@ -55,10 +50,10 @@ class SimpleAlgebraGenerator extends React.Component {
     }
 
     let methods = {}
-    methods[ADDITION] = {method:addition, symbol:ADDITION}
-    methods[SUBTRACTION] = {method:subtraction, symbol:SUBTRACTION}
-    methods[MULTIPLICATION] = {method:multiplication, symbol:MULTIPLICATION}
-    methods[DIVISION] = {method:division, symbol:DIVISION}
+    methods[c.operations.ADDITION] = {method:addition, symbol:c.operations.ADDITION}
+    methods[c.operations.SUBTRACTION] = {method:subtraction, symbol:c.operations.SUBTRACTION}
+    methods[c.operations.MULTIPLICATION] = {method:multiplication, symbol:c.operations.MULTIPLICATION}
+    methods[c.operations.DIVISION] = {method:division, symbol:c.operations.DIVISION}
 
     let ops = this.props.operations
     if(!ops || ops.length === 0){
@@ -98,17 +93,11 @@ SimpleAlgebraGenerator.defaultProps = defaultProps
 class SimpleAlgebraEditor extends QuestionEditor {
 
   render(){
-    let options = [
-      {label:'Addition', value:ADDITION},
-      {label:'Subtraction', value:SUBTRACTION},
-      {label:'Multiplication', value:MULTIPLICATION},
-      {label:'Division', value:DIVISION},
-    ]
     return (
       <div className='editor-form'>
         { this.renderMinMaxRange(1, 5, 5, 16) }
         <br/>
-        <CheckboxSet value={ this.state.operations } options={ options } onChange={ (val) => this.handleCheckboxSetChange('operations', val) }></CheckboxSet>
+        <CheckboxSet value={ this.state.operations } options={ c.operationsWithLabels } onChange={ (val) => this.handleCheckboxSetChange('operations', val) }></CheckboxSet>
         <label>Include Negative Numbers:</label>
         <input type='checkbox' name='includeNegative' defaultChecked={ this.state.includeNegative } onChange={ this.handleCheckboxChange }></input>
       </div>

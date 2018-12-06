@@ -8,18 +8,15 @@ const defaultProps = {
   maxNumber: 5,
 }
 
-const ADDITION = '+'
-const SUBTRACTION = '-'
-
 class NumberLineGenerator extends React.Component {  
 
   render(){
-    let operation = rand([ADDITION, SUBTRACTION]);
+    let operation = rand([c.operations.ADDITION, c.operations.SUBTRACTION]);
     let left = rand(this.props.minNumber, this.props.maxNumber);
     let right = rand(0, this.props.maxNumber);
 
     let answer;
-    if(operation === ADDITION){
+    if(operation === c.operations.ADDITION){
       answer = left + right;
     }
     else{

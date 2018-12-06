@@ -6,13 +6,8 @@ import shuffle from '../utils/shuffle'
 import QuestionEditor from '../question_editor'
 import CheckboxSet from '../checkbox_set'
 
-const ADDITION = '+';
-const SUBTRACTION = '-';
-const MULTIPLICATION = String.fromCodePoint(215)
-const DIVISION = String.fromCodePoint(0x00F7)
-
 const defaultProps = {
-  operations: [ADDITION, SUBTRACTION, MULTIPLICATION, DIVISION],
+  operations: [c.operations.ADDITION, c.operations.SUBTRACTION, c.operations.MULTIPLICATION, c.operations.DIVISION],
   simpleMode: false
 }
 
@@ -348,10 +343,10 @@ function division(pair, simpleMode){
 }
 
 let operationMethodMap = {}
-operationMethodMap[ADDITION] = addition
-operationMethodMap[SUBTRACTION] = subtraction
-operationMethodMap[MULTIPLICATION] = multiplication
-operationMethodMap[DIVISION] = division
+operationMethodMap[c.operations.ADDITION] = addition
+operationMethodMap[c.operations.SUBTRACTION] = subtraction
+operationMethodMap[c.operations.MULTIPLICATION] = multiplication
+operationMethodMap[c.operations.DIVISION] = division
 
 class GridPictureGenerator extends React.Component {
 
@@ -407,7 +402,7 @@ class GridPictureGenerator extends React.Component {
       return {symbol:op, method:operationMethodMap[op]}
     })
     if(ops.length === 0){
-      ops = [{symbol: ADDITION, method:operationMethodMap[ADDITION]}]
+      ops = [{symbol: c.operations.ADDITION, method:operationMethodMap[c.operations.ADDITION]}]
     }
 
     let operation = rand(ops)
@@ -526,17 +521,11 @@ GridPictureGenerator.defaultProps = defaultProps
 class GridPictureEditor extends QuestionEditor {
 
   render(){
-    let options = [
-      {label:'Addition', value:ADDITION},
-      {label:'Subtraction', value:SUBTRACTION},
-      {label:'Multiplication', value:MULTIPLICATION},
-      {label:'Division', value:DIVISION},
-    ]
     return (
       <div className='editor-form'>
         <label>Included Operations:</label>
         <br/>
-        <CheckboxSet value={ this.state.operations } options={ options } onChange={ (val) => this.handleCheckboxSetChange('operations', val) }></CheckboxSet>
+        <CheckboxSet value={ this.state.operations } options={ c.operationsWithLabels } onChange={ (val) => this.handleCheckboxSetChange('operations', val) }></CheckboxSet>
         <br/>
         <label>Simple Mode:</label>
         <input type='checkbox' name='simpleMode' defaultChecked={ this.state.simpleMode } onChange={ this.handleCheckboxChange }></input>

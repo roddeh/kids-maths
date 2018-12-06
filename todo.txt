@@ -5,6 +5,10 @@
 Replace the ? to balance.  The question mark should actually be an empty square.
 
 
+- Arithmetic Pyramid
+  - Complete inverse mode
+
+
 - Multistep Algebra
 
 K + 5 = 9

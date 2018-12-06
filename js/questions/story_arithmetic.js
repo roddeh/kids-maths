@@ -5,16 +5,11 @@ import plural from '../utils/plural'
 import QuestionEditor from '../question_editor'
 import CheckboxSet from '../checkbox_set'
 
-const ADDITION = '+'
-const SUBTRACTION = '-'
-const MULTIPLICATION = String.fromCodePoint(215)
-const DIVISION = String.fromCodePoint(0x00F7)
-
 const defaultProps = {
   childsName: 'Yugo',
   minNumber: 1,
   maxNumber: 12,
-  operations: [ADDITION]
+  operations: [c.operations.ADDITION]
 }
 
 function prepareAdditionNumbers(){
@@ -111,7 +106,7 @@ function divisionTrainStory(leftNum, rightNum){
 
 let operationStories = {}
 
-operationStories[ADDITION] = {
+operationStories[c.operations.ADDITION] = {
   prepare:prepareAdditionNumbers,
   stories:[
     additionAppleStory,
@@ -119,7 +114,7 @@ operationStories[ADDITION] = {
   ]
 }
 
-operationStories[SUBTRACTION] = {
+operationStories[c.operations.SUBTRACTION] = {
   prepare:prepareSubtractionNumbers,
   stories:[
     subtractionAppleStory,
@@ -127,7 +122,7 @@ operationStories[SUBTRACTION] = {
   ]
 }
 
-operationStories[MULTIPLICATION] = {
+operationStories[c.operations.MULTIPLICATION] = {
   prepare:prepareMultiplicationNumbers,
   stories:[
     multiplicationAppleStory,
@@ -135,7 +130,7 @@ operationStories[MULTIPLICATION] = {
   ]
 }
 
-operationStories[DIVISION] = {
+operationStories[c.operations.DIVISION] = {
   prepare:prepareDivisionNumbers,
   stories:[
     divisionAppleStory,
@@ -152,7 +147,7 @@ class StoryArithmeticGenerator extends React.Component {
 
     let operation = rand(operations)
     if(!operation){
-      operation = operationStories[ADDITION]
+      operation = operationStories[c.operations.ADDITION]
     }
 
     let [leftNum, rightNum] = operation.prepare.apply(this)
@@ -171,12 +166,6 @@ StoryArithmeticGenerator.defaultProps = defaultProps
 class StoryArithmeticEditor extends QuestionEditor {
 
   render(){
-    let options = [
-      {label:'Addition', value:ADDITION},
-      {label:'Subtraction', value:SUBTRACTION},
-      {label:'Multiplication', value:MULTIPLICATION},
-      {label:'Division', value:DIVISION},
-    ]
     return (
       <div className='editor-form'>
         <label>Child's Name:</label>
@@ -186,7 +175,7 @@ class StoryArithmeticEditor extends QuestionEditor {
         <br/>
         <label>Included Operations:</label>
         <br/>
-        <CheckboxSet value={ this.state.operations } options={ options } onChange={ (val) => this.handleCheckboxSetChange('operations', val) }></CheckboxSet>
+        <CheckboxSet value={ this.state.operations } options={ c.operationsWithLabels } onChange={ (val) => this.handleCheckboxSetChange('operations', val) }></CheckboxSet>
       </div>
     )
   }

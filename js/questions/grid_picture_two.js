@@ -5,15 +5,7 @@ import shuffle from '../utils/shuffle'
 import QuestionEditor from '../question_editor'
 import GridPicture from './grid_picture'
 
-const defaultProps = {
-  
-}
-
-const ADDITION = '+'
-const SUBTRACTION = '-'
-const MULTIPLICATION = String.fromCodePoint(215)
-const DIVISION = String.fromCodePoint(0x00F7)
-const EQUALS = '='
+const defaultProps = {}
 
 class GridPictureTwoGenerator extends GridPicture.generator {
 
@@ -74,7 +66,7 @@ class GridPictureTwoGenerator extends GridPicture.generator {
             left = num2
             right = num
           }
-          return {left, right, value, symbol: ADDITION}
+          return {left, right, value, symbol: c.operations.ADDITION}
         }
 
         return addition(num)
@@ -84,7 +76,7 @@ class GridPictureTwoGenerator extends GridPicture.generator {
         function addition(value){
           let left = rand(1, value - 1)
           let right = value - left
-          return {left, right, value, symbol: ADDITION}
+          return {left, right, value, symbol: c.operations.ADDITION}
         }
         return addition(value)
       }
@@ -114,7 +106,7 @@ class GridPictureTwoGenerator extends GridPicture.generator {
 
       pair.left = exp1
       pair.right = exp2
-      pair.symbol = EQUALS
+      pair.symbol = c.operations.EQUALS
     }
     pairs.forEach(createEquation)
 

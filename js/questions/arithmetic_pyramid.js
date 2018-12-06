@@ -5,13 +5,10 @@ import rand from '../utils/rand'
 import QuestionEditor from '../question_editor'
 import CheckboxSet from '../checkbox_set'
 
-const ADDITION = '+'
-const SUBTRACTION = '-'
-
 const defaultProps = {
   minNumber: 1,
   maxNumber: 12,
-  operations: [ADDITION],
+  operations: [c.operations.ADDITION],
   inverseMode: false,
 }
 
@@ -25,7 +22,7 @@ class ArithmeticPyramidGenerator extends React.Component {
     let max = this.props.maxNumber
     let ops = this.props.operations
     if(ops.length === 0){
-      ops = [ADDITION]
+      ops = [c.operations.ADDITION]
     }
 
     function table(n, blank = true){
@@ -77,8 +74,8 @@ ArithmeticPyramidGenerator.defaultProps = defaultProps
 class ArithmeticPyramidEditor extends QuestionEditor {
   render(){
     let options = [
-      {label:'Addition', value:ADDITION},
-      {label:'Subtraction', value:SUBTRACTION},
+      {label:'Addition', value: c.operations.ADDITION},
+      {label:'Subtraction', value: c.operations.SUBTRACTION},
     ]
     return (
       <div className='editor-form'>

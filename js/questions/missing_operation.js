@@ -5,15 +5,10 @@ import doTimes from '../utils/do_times'
 import QuestionEditor from '../question_editor'
 import CheckboxSet from '../checkbox_set'
 
-const ADDITION = '+'
-const SUBTRACTION = '-'
-const MULTIPLICATION = String.fromCodePoint(215)
-const DIVISION = String.fromCodePoint(0x00F7)
-
 const defaultProps = {
   minNumber: 1,
   maxNumber: 12,
-  operations:[ADDITION, SUBTRACTION, DIVISION, MULTIPLICATION]
+  operations: c.operationsArray
 }
 
 class MissingOperationGenerator extends React.Component {
@@ -48,10 +43,10 @@ class MissingOperationGenerator extends React.Component {
 
   createLine(ind){
     let operationFunctions = {}
-    operationFunctions[ADDITION] = this.additionMethod
-    operationFunctions[SUBTRACTION] = this.subtractionMethod
-    operationFunctions[MULTIPLICATION] = this.multiplicationMethod
-    operationFunctions[DIVISION] = this.divisionMethod
+    operationFunctions[c.operations.ADDITION] = this.additionMethod
+    operationFunctions[c.operations.SUBTRACTION] = this.subtractionMethod
+    operationFunctions[c.operations.MULTIPLICATION] = this.multiplicationMethod
+    operationFunctions[c.operations.DIVISION] = this.divisionMethod
     return (
       <React.Fragment key={ ind }>
         {
@@ -76,19 +71,13 @@ MissingOperationGenerator.defaultProps = defaultProps
 class MissingOperationEditor extends QuestionEditor {
 
   render(){
-     let options = [
-      {label:'Addition', value:ADDITION},
-      {label:'Subtraction', value:SUBTRACTION},
-      {label:'Multiplication', value:MULTIPLICATION},
-      {label:'Division', value:DIVISION},
-    ]
     return (
       <div className='editor-form'>
         { this.renderMinMaxRange(1, 5, 5, 12) }
         <br/>
         <label>Included Operations:</label>
         <br/>
-        <CheckboxSet value={ this.state.operations } options={ options } onChange={ (val) => this.handleCheckboxSetChange('operations', val) }></CheckboxSet>
+        <CheckboxSet value={ this.state.operations } options={ c.operationsWithLabels } onChange={ (val) => this.handleCheckboxSetChange('operations', val) }></CheckboxSet>
       </div>
     )
   }

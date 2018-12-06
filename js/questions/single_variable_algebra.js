@@ -6,8 +6,6 @@ import QuestionEditor from '../question_editor'
 
 const defaultProps = {}
 
-const ADDITION = '+';
-const SUBTRACTION = '-';
 const VARIABLES = ['a', 'b', 'c', 'x', 'y'];
 
 class SingleVariableAlgebraGenerator extends React.Component {
@@ -17,11 +15,11 @@ class SingleVariableAlgebraGenerator extends React.Component {
     let variable = rand(2, 8);
     let modifier = rand(1, 9);
 
-    let modifierSymbol = rand([ADDITION, SUBTRACTION]);
+    let modifierSymbol = rand([c.operations.ADDITION, c.operations.SUBTRACTION]);
     let variableSymbol = rand(VARIABLES);
 
     let answer = multiplier * variable;
-    if(modifierSymbol === ADDITION){
+    if(modifierSymbol === c.operations.ADDITION){
       answer += modifier
     }
     else{

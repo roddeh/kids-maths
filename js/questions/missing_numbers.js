@@ -5,15 +5,10 @@ import doTimes from '../utils/do_times'
 import QuestionEditor from '../question_editor'
 import CheckboxSet from '../checkbox_set'
 
-const ADDITION = '+'
-const SUBTRACTION = '-'
-const MULTIPLICATION = String.fromCodePoint(215)
-const DIVISION = String.fromCodePoint(0x00F7)
-
 const defaultProps = {
   minNumber: 1,
   maxNumber: 12,
-  operations:[ADDITION, SUBTRACTION, DIVISION, MULTIPLICATION]
+  operations:[c.operations.ADDITION, c.operations.SUBTRACTION, c.operations.DIVISION, c.operations.MULTIPLICATION]
 }
 
 class MissingNumbersGenerator extends React.Component {
@@ -22,28 +17,28 @@ class MissingNumbersGenerator extends React.Component {
     let leftNum = rand(this.props.minNumber, this.props.maxNumber)
     let rightNum = rand(this.props.minNumber, this.props.maxNumber)
     let answer = leftNum + rightNum
-    return this.createEquation(leftNum, rightNum, answer, ADDITION)
+    return this.createEquation(leftNum, rightNum, answer, c.operations.ADDITION)
   }
 
   subtractionMethod(){
     let leftNum = rand(this.props.minNumber, this.props.maxNumber)
     let rightNum = rand(this.props.minNumber, leftNum)  
     let answer = leftNum - rightNum
-    return this.createEquation(leftNum, rightNum, answer, SUBTRACTION)
+    return this.createEquation(leftNum, rightNum, answer, c.operations.SUBTRACTION)
   }
 
   multiplicationMethod(){
     let leftNum = rand(this.props.minNumber, this.props.maxNumber)
     let rightNum = rand(this.props.minNumber, this.props.maxNumber)
     let answer = leftNum * rightNum
-    return this.createEquation(leftNum, rightNum, answer, MULTIPLICATION)
+    return this.createEquation(leftNum, rightNum, answer, c.operations.MULTIPLICATION)
   }
 
   divisionMethod(){
     let divisor = rand(this.props.minNumber, this.props.maxNumber)
     let answer = rand(this.props.minNumber, this.props.maxNumber)
     let dividend = divisor * answer
-    return this.createEquation(dividend, divisor, answer, DIVISION)
+    return this.createEquation(dividend, divisor, answer, c.operations.DIVISION)
   }
 
   createEquation(left, right, answer, operator){
@@ -57,10 +52,10 @@ class MissingNumbersGenerator extends React.Component {
 
   createLine(ind){
     let operationFunctions = {}
-    operationFunctions[ADDITION] = this.additionMethod
-    operationFunctions[SUBTRACTION] = this.subtractionMethod
-    operationFunctions[MULTIPLICATION] = this.multiplicationMethod
-    operationFunctions[DIVISION] = this.divisionMethod
+    operationFunctions[c.operations.ADDITION] = this.additionMethod
+    operationFunctions[c.operations.SUBTRACTION] = this.subtractionMethod
+    operationFunctions[c.operations.MULTIPLICATION] = this.multiplicationMethod
+    operationFunctions[c.operations.DIVISION] = this.divisionMethod
     return (
       <React.Fragment key={ ind }>
         {
@@ -85,19 +80,13 @@ MissingNumbersGenerator.defaultProps = defaultProps
 class MissingNumbersEditor extends QuestionEditor {
 
   render(){
-     let options = [
-      {label:'Addition', value:ADDITION},
-      {label:'Subtraction', value:SUBTRACTION},
-      {label:'Multiplication', value:MULTIPLICATION},
-      {label:'Division', value:DIVISION},
-    ]
     return (
       <div className='editor-form'>
         { this.renderMinMaxRange(1, 5, 5, 12) }
         <br/>
         <label>Included Operations:</label>
         <br/>
-        <CheckboxSet value={ this.state.operations } options={ options } onChange={ (val) => this.handleCheckboxSetChange('operations', val) }></CheckboxSet>
+        <CheckboxSet value={ this.state.operations } options={ c.operationsWithLabels } onChange={ (val) => this.handleCheckboxSetChange('operations', val) }></CheckboxSet>
       </div>
     )
   }
