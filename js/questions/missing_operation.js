@@ -17,28 +17,32 @@ class MissingOperationGenerator extends React.Component {
     let leftNum = rand(this.props.minNumber, this.props.maxNumber)
     let rightNum = rand(this.props.minNumber, this.props.maxNumber)
     let answer = leftNum + rightNum
-    return leftNum + ' _ ' + rightNum + ' = ' + answer
+    return this.renderLine(leftNum, rightNum, answer)
   }
 
   subtractionMethod(){
     let leftNum = rand(this.props.minNumber, this.props.maxNumber)
     let rightNum = rand(this.props.minNumber, leftNum)  
     let answer = leftNum - rightNum
-    return leftNum + ' _ ' + rightNum + ' = ' + answer 
+    return this.renderLine(leftNum, rightNum, answer)
   }
 
   multiplicationMethod(){
     let leftNum = rand(this.props.minNumber, this.props.maxNumber)
     let rightNum = rand(this.props.minNumber, this.props.maxNumber)
     let answer = leftNum * rightNum
-    return leftNum + ' _ ' + rightNum + ' = ' + answer
+    return this.renderLine(leftNum, rightNum, answer)
   }
 
   divisionMethod(){
     let divisor = rand(this.props.minNumber, this.props.maxNumber)
     let answer = rand(this.props.minNumber, this.props.maxNumber)
     let dividend = divisor * answer
-    return dividend + ' _ ' + divisor + ' = ' + answer
+    return this.renderLine(dividend, divisor, answer)
+  }
+
+  renderLine(left, right, answer){
+    return <React.Fragment>{ left + ' ' } <span className='empty-square'></span> { ' ' + right + ' = ' + answer }</React.Fragment>
   }
 
   createLine(ind){

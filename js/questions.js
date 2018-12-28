@@ -3,6 +3,7 @@ import AlgebraSentence from './questions/algebra_sentence'
 import AngleTypes from './questions/angle_types'
 import AnimalLegMath from './questions/animal_leg_math'
 import ArithmeticPyramid from './questions/arithmetic_pyramid'
+import BalancedEquations from './questions/balanced_equations'
 import ChainedArithmetic from './questions/chained_arithmetic'
 import CircleGeometry from './questions/circle_geometry'
 import ClockTime from './questions/clock_time'
@@ -62,6 +63,7 @@ module.exports = [
   AlgebraSentence,
   AngleTypes,
   AnimalLegMath,
+  BalancedEquations,
   ChainedArithmetic,
   CircleGeometry,
   ClockTime,
