@@ -45,7 +45,8 @@ import RotatedShape from './questions/rotated_shape'
 import SimpleArithmetic from './questions/simple_arithmetic'
 import SimpleAlgebra from './questions/simple_algebra'
 import SingleVariableAlgebra from './questions/single_variable_algebra'
-import ShapeProejections from './questions/shape_projections'
+import ShapeProjections from './questions/shape_projections'
+import SquaringNumbers from './questions/squaring_numbers'
 import StackedAddition from './questions/stacked_addition'
 import StoryArithmetic from './questions/story_arithmetic'
 import TimeDistanceSpeed from './questions/time_distance_speed'
@@ -105,7 +106,8 @@ module.exports = [
   SimpleArithmetic,
   SimpleAlgebra,
   SingleVariableAlgebra,
-  ShapeProejections,
+  ShapeProjections,
+  SquaringNumbers,
   StackedAddition,
   StoryArithmetic,
   TimeDistanceSpeed,

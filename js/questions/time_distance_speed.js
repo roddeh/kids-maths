@@ -18,7 +18,7 @@ class TimeDistanceSpeedGenerator extends React.Component {
       let time = rand(2, 8);
       return (
         <React.Fragment>
-          A train is travelling at <strong>{ speed + this.props.speedUnit }</strong> for <strong>{ time + this.props.timeUnit }</strong>, how far has the train travelled?
+          A train is travelling at <strong>{ speed + this.props.speedUnit }</strong> for <strong>{ time + ' ' + this.props.timeUnit }</strong>, how far has the train travelled?
         </React.Fragment>
       )
     }

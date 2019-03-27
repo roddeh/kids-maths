@@ -1,8 +1,6 @@
-- Balanced equations
-
-? + 4 = 6 + 3
-
-Replace the ? to balance.  The question mark should actually be an empty square.
+- Bar Graph 
+  - At the start of the week Yugo has $2.  Each day he earns $3.  Draw a graph showing..
+- Line Graph
 
 
 - Arithmetic Pyramid
@@ -25,7 +23,7 @@ Therefore Y =
 ----
 
 - Simplify Fractions - 4/6 => 2/3
-  - Maybe with pictures to help at first
+  - Maybe with pictures to help at first 
 ----
 
 - Volume sentence questions

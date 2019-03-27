@@ -88,17 +88,13 @@ class BalancedEquationsGenerator extends React.Component {
       ops.push(c.operations.ADDITION)
     }
 
-
     let leftMethods = ops.map((op) => methods[op])
     let rightMethods = ops.filter((op) => op === c.operations.ADDITION || op === c.operations.SUBTRACTION)
       .map((op) => methods[op])
 
-
     let left = rand(leftMethods)()
     let right = rand(rightMethods)(left.result)
     let replaceLeft = Math.random() > 0.5
-
-    console.log(left.result, right.result)
 
     return (
       <div key={ i }>

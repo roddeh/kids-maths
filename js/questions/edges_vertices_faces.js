@@ -3,10 +3,7 @@ import c from '../constants'
 import rand from '../utils/rand'
 import QuestionEditor from '../question_editor'
 
-const defaultProps = {
-  rangeValue: 3,
-  booleanValue:false,
-}
+const defaultProps = {}
 
 let idCounter = 0
 const SIZE = 150
